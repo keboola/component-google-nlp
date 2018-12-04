@@ -7,7 +7,7 @@ from kbc.env_handler import KBCEnvHandler
 import logging
 
 
-KEY_PROJECT_ID = 'project_id'
+KEY_PROJECT_ID = 'kds-team.ex-google-nlp'
 KEY_API_TOKEN = '#api_token'
 KEY_PERIOD_FROM = 'period_from'
 KEY_PERIOD_TO = 'period_to'

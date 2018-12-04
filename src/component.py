@@ -3,9 +3,9 @@ Template Component main class.
 
 '''
 
-
-from .kbc.env_handler import KBCEnvHandler
+from kbc.env_handler import KBCEnvHandler
 import logging
+
 
 KEY_PROJECT_ID = 'project_id'
 KEY_API_TOKEN = '#api_token'

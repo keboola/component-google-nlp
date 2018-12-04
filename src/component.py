@@ -1,71 +1,56 @@
-import os
+'''
+Template Component main class.
+
+'''
+
+
+from .kbc.env_handler import KBCEnvHandler
 import logging
-import pandas as pd
-from .analyzer import analyze_entities, analyze_sentiment, analyze_syntax, get_native_encoding_type
-from .flattener import parse_syntax_res, parse_sentiment_res, parse_entity_res
+
+KEY_PROJECT_ID = 'project_id'
+KEY_API_TOKEN = '#api_token'
+KEY_PERIOD_FROM = 'period_from'
+KEY_PERIOD_TO = 'period_to'
+KEY_RELATIVE_PERIOD = 'relative_period'
 
 
-DEFAULT_TABLE_SOURCE = "./data/in/tables/"
-DEFAULT_TABLE_DESTINATION = "./data/out/tables/"
+KEY_MAND_PERIOD_GROUP = [KEY_PERIOD_FROM, KEY_PERIOD_TO]
+KEY_MAND_DATE_GROUP = [KEY_RELATIVE_PERIOD, KEY_MAND_PERIOD_GROUP]
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    datefmt="%Y-%m-%d %H:%M:%S")
+MANDATORY_PARS = [KEY_PROJECT_ID, KEY_API_TOKEN, KEY_MAND_DATE_GROUP]
 
-
-def request_analysis(a_type, key, input_text):
-
-    if a_type == 'entities':
-        result = analyze_entities(input_text, key, get_native_encoding_type())
-        df_result = parse_entity_res(input_text, result)
-    elif a_type == 'sentiment':
-        result = analyze_sentiment(input_text, key, get_native_encoding_type())
-        df_result = parse_sentiment_res(input_text, result)
-    elif a_type == 'syntax':
-        result = analyze_syntax(input_text, key, get_native_encoding_type())
-        df_result = parse_syntax_res(input_text, result)
-
-    return df_result
+APP_VERSION = '0.0.1'
 
 
-def output(filename, data):
+class Component(KBCEnvHandler):
 
-    dest = DEFAULT_TABLE_DESTINATION + filename + ".csv"
+    def __init__(self, debug=False):
+        handler = KBCEnvHandler.__init__(self, MANDATORY_PARS)
+        # override debug from config
+        if(self.cfg_params.get('debug')):
+            debug = True
 
-    if os.path.isfile(dest):
-        with open(dest, 'a') as b:
-            data.to_csv(b, index=False, header=False)
-        b.close()
-    else:
-        with open(dest, 'w+') as b:
-            data.to_csv(b, index=False, header=True)
-        b.close()
+        self.set_default_logger('DEBUG' if debug else 'INFO')
+        logging.info('Running version %s', APP_VERSION)
+        logging.info('Loading configuration...')
 
+        try:
+            self.validateConfig()
+        except ValueError as e:
+            logging.error(e)
+            exit(1)
 
-def main(input_file_path, seleted_column, analysis_type, api_key):
-
-    df = pd.read_csv(input_file_path)
-    queries = df[seleted_column]
-
-    for q in queries:
-        df_result_d = request_analysis(analysis_type, api_key, q)
-        for df_result_k in df_result_d:
-            output(df_result_k, df_result_d[df_result_k])
-
-        break
+    def run(self, debug=False):
+        '''
+        Main execution code
+        '''
+        params = self.cfg_params # noqa
 
 
-dev_key = "AIzaSyAkzMRVbmggvF1_l5_Z1fn2CVFivT8KwUI"
-ui_analysis_type = 'entities'
-# analysis_type = 'syntax'
-ui_input_file_path = './sample_files/sample_input.csv'
-ui_selected_column = 'bar'
-
-
-main(
-    input_file_path=ui_input_file_path,
-    seleted_column=ui_selected_column,
-    analysis_type=ui_analysis_type,
-    api_key=dev_key
-)
+"""
+        Main entrypoint
+"""
+if __name__ == "__main__":
+    comp = Component()
+    comp.run()
+    print("hello jk")

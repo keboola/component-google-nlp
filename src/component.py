@@ -54,3 +54,18 @@ def main(input_file_path, seleted_column, analysis_type, api_key):
             output(df_result_k, df_result_d[df_result_k])
 
         break
+
+
+dev_key = "AIzaSyAkzMRVbmggvF1_l5_Z1fn2CVFivT8KwUI"
+ui_analysis_type = 'entities'
+# analysis_type = 'syntax'
+ui_input_file_path = './sample_files/sample_input.csv'
+ui_selected_column = 'bar'
+
+
+main(
+    input_file_path=ui_input_file_path,
+    seleted_column=ui_selected_column,
+    analysis_type=ui_analysis_type,
+    api_key=dev_key
+)

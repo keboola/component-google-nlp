@@ -1,5 +1,5 @@
 {
-    "title": "",
+    "title": "Configuration",
     "type": "object",
     "required":[
         "#API_key",
@@ -14,7 +14,7 @@
         },
         "analysis_type":{
             "title": "Analysis Type",
-            "type": "",
+            "type": "string",
             "default": "entities"
         }
     }

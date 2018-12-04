@@ -9,6 +9,7 @@ def get_native_encoding_type():
     else:
         return 'UTF32'
 
+
 def analyze_entities(text, api_key, encoding='UTF32'):
     body = {
         'document': {

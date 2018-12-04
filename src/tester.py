@@ -1,6 +1,3 @@
-
-
-
 from local.main import main
 # from keboola import docker
 
@@ -9,7 +6,6 @@ from local.main import main
 # params = cfg.get_parameters()
 # analysis_type = cfg.get_parameters()["analysis_type"]
 # user_api_key = cfg.get_parameters()["#API_key"]
-
 
 
 dev_key = "AIzaSyAkzMRVbmggvF1_l5_Z1fn2CVFivT8KwUI"

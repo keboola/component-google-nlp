@@ -2,84 +2,16 @@
 import pandas as pd
 import hashlib
 
-s_entities = """
-    {
-      "name": "starbucks",
-      "type": "ORGANIZATION",
-      "metadata": {
-        "mid": "/m/018c_r",
-        "wikipedia_url": "https://en.wikipedia.org/wiki/Starbucks"
-      },
-      "salience": 0.754169,
-      "mentions": [
-        {
-          "text": {
-            "content": "starbucks",
-            "beginOffset": 0
-          },
-          "type": "PROPER"
-        }
-      ]
-    },
-"""
-
-s_sentiments = """
-{  
-   "documentSentiment":{  
-      "magnitude":0.8,
-      "score":0.8
-   },
-   "language":"en",
-   "sentences":[  
-      {  
-         "text":{  
-            "content":"starbucks is good, tim hortons is better",
-            "beginOffset":0
-         },
-         "sentiment":{  
-            "magnitude":0.8,
-            "score":0.8
-         }
-      }
-   ]
-}
-"""
-
-s_sentences = """
-      {  
-         "text":{  
-            "content":"starbucks",
-            "beginOffset":0
-         },
-         "partOfSpeech":{  
-            "tag":"NOUN",
-            "aspect":"ASPECT_UNKNOWN",
-            "case":"CASE_UNKNOWN",
-            "form":"FORM_UNKNOWN",
-            "gender":"GENDER_UNKNOWN",
-            "mood":"MOOD_UNKNOWN",
-            "number":"SINGULAR",
-            "person":"PERSON_UNKNOWN",
-            "proper":"PROPER",
-            "reciprocity":"RECIPROCITY_UNKNOWN",
-            "tense":"TENSE_UNKNOWN",
-            "voice":"VOICE_UNKNOWN"
-         },
-         "dependencyEdge":{  
-            "headTokenIndex":1,
-            "label":"NSUBJ"
-         },
-         "lemma":"starbucks"
-      },
-"""
 
 def _hash_id(query_text):
     return hashlib.md5(query_text.encode('utf-8')).hexdigest()
+
 
 def _add_pk_col(df, query_text):
     df['query_text'] = query_text
     df['query_id'] = _hash_id(query_text)
     return df
+
 
 def parse_syntax_res(query_text, json_obj):
 
@@ -91,15 +23,15 @@ def parse_syntax_res(query_text, json_obj):
 
     for s in sentences_raw:
         s_content = s.get('text').get('content')
-        s_beginOffset = s.get('text').get('beginOffset')
+        s_begin_offset = s.get('text').get('beginOffset')
         sentences.append({
             'content': s_content,
-            'beginOffset': s_beginOffset
+            'beginOffset': s_begin_offset
         })
 
     for t in tokens_raw:
         t_content = t.get('text').get('content')
-        t_beginOffset = t.get('text').get('beginOffset')
+        t_begin_offset = t.get('text').get('beginOffset')
         part_of_speech_tag = t.get('partOfSpeech').get('tag')
         part_of_speech_aspect = t.get('partOfSpeech').get('aspect')
         part_of_speech_case = t.get('partOfSpeech').get('case')
@@ -117,7 +49,7 @@ def parse_syntax_res(query_text, json_obj):
         lemma = t.get('lemma')
         tokens.append({
             'content': t_content,
-            'beginOffset': t_beginOffset,
+            'beginOffset': t_begin_offset,
             'part_of_speech_tag': part_of_speech_tag,
             'part_of_speech_aspect': part_of_speech_aspect,
             'part_of_speech_case': part_of_speech_case,
@@ -141,7 +73,6 @@ def parse_syntax_res(query_text, json_obj):
     df_sentences = _add_pk_col(df_sentences, query_text)
     df_tokens = _add_pk_col(df_tokens, query_text)
 
-
     return {
         "sentences": df_sentences,
         "tokens": df_tokens
@@ -155,24 +86,23 @@ def parse_sentiment_res(query_text, json_obj):
     d_score = json_obj.get('documentSentiment').get('score')
     language = json_obj.get('documentSentiment').get('language')
 
-    document_sentiment = []
-    document_sentiment.append({
+    document_sentiment = [{
         'magnitude': d_magnitude,
         'score': d_score,
         'language': language
-    })
+    }]
 
     sentences_raw = json_obj.get('sentences')
     sentence_sentiments = []
 
     for s in sentences_raw:
         content = s.get("text").get("content")
-        beginOffset = s.get("text").get("beginOffset")
+        begin_offset = s.get("text").get("beginOffset")
         magnitude = s.get("sentiment").get("magnitude")
         score = s.get("sentiment").get("score")
         sentence_sentiments.append({
             'content': content,
-            'beginOffset': beginOffset,
+            'beginOffset': begin_offset,
             'magnitude': magnitude,
             'score': score
         })
@@ -189,7 +119,6 @@ def parse_sentiment_res(query_text, json_obj):
     }
 
 
-
 # this handles 1 HTTP response = 1 text
 def parse_entity_res(query_text, json_obj):
     entities = []
@@ -198,7 +127,7 @@ def parse_entity_res(query_text, json_obj):
 
     for e in entities_raw:
         name = e.get('name')
-        type = e.get('type')
+        e_type = e.get('type')
         salience = e.get('salience')
         metadata = e.get('metadata')
         if metadata:
@@ -210,7 +139,7 @@ def parse_entity_res(query_text, json_obj):
 
         entities.append({
             'name': name,
-            'type': type,
+            'type': e_type,
             'salience': salience,
             'metadata_mid': mid,
             'metadata_wikipedia_url': wikipedia_url
@@ -222,15 +151,15 @@ def parse_entity_res(query_text, json_obj):
             text = m.get('text')
             if text:
                 content = metadata.get('content')
-                beginOffset = metadata.get('beginOffset')
+                begin_offset = metadata.get('beginOffset')
             else:
                 content = None
-                beginOffset = None
-            type = m.get('type')
+                begin_offset = None
+            m_type = m.get('type')
             mentions.append({
                 'content': content,
-                'beginOffset': beginOffset,
-                'type': type
+                'beginOffset': begin_offset,
+                'type': m_type
             })
 
     df_entities = pd.DataFrame.from_records(entities)

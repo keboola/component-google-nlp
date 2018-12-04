@@ -7,17 +7,7 @@ from kbc.env_handler import KBCEnvHandler
 import logging
 
 
-KEY_PROJECT_ID = 'kds-team.ex-google-nlp'
-KEY_API_TOKEN = '#api_token'
-KEY_PERIOD_FROM = 'period_from'
-KEY_PERIOD_TO = 'period_to'
-KEY_RELATIVE_PERIOD = 'relative_period'
-
-
-KEY_MAND_PERIOD_GROUP = [KEY_PERIOD_FROM, KEY_PERIOD_TO]
-KEY_MAND_DATE_GROUP = [KEY_RELATIVE_PERIOD, KEY_MAND_PERIOD_GROUP]
-
-MANDATORY_PARS = [KEY_PROJECT_ID, KEY_API_TOKEN, KEY_MAND_DATE_GROUP]
+MANDATORY_PARS = ['#API_key', 'analysis_type']
 
 APP_VERSION = '0.0.1'
 

@@ -40,7 +40,7 @@ class Component(KBCEnvHandler):
             logging.error(e)
             exit(1)
 
-    def run(self, debug=False):
+    def run(self, debug=True):
         '''
         Main execution code
         '''

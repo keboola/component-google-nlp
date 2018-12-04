@@ -8,11 +8,17 @@
     "properties":{
         "#API_key":{
             "title": "Google API Key",
+            "format": "password",
             "type": "string",
             "minLength": 4,
-            "description": ""
+            "description": "Please visit <a href='https://console.cloud.google.com/apis/credentials'>Google Cloud Console</a>"
         },
         "analysis_type":{
+            "enum": [
+                "sentiment",
+                "entities",
+                "syntax"
+            ],
             "title": "Analysis Type",
             "type": "string",
             "default": "entities"

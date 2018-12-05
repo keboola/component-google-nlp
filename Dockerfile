@@ -3,7 +3,8 @@ ENV PYTHONIOENCODING utf-8
 
 COPY . /code/
 
-RUN apk add make automake gcc g++ subversion python3-dev
+RUN apk add gcc
+RUN apk add python3-dev
 
 RUN apk add git
 RUN pip install flake8

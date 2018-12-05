@@ -5,7 +5,7 @@ Template Component main class.
 
 from kbc.env_handler import KBCEnvHandler
 import logging
-
+import job_runner
 
 MANDATORY_PARS = ['#API_key', 'analysis_type']
 
@@ -35,8 +35,10 @@ class Component(KBCEnvHandler):
         Main execution code
         '''
         params = self.cfg_params # noqa
-        print(params.get('#API_key'))
-        print(params.get('analysis_type'))
+        # api_key = params.get('#API_key')
+        # analysis_type = params.get('analysis_type')
+        # job_runner.main(analysis_type, api_key)
+        job_runner.test()
 
 
 """

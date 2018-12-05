@@ -9,7 +9,7 @@ import logging
 
 MANDATORY_PARS = ['#API_key', 'analysis_type']
 
-APP_VERSION = '0.0.1'
+APP_VERSION = '0.0.5'
 
 
 class Component(KBCEnvHandler):

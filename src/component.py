@@ -41,10 +41,16 @@ class Component(KBCEnvHandler):
 
         for t in tables:
             input_file_path = t["full_path"]
-            print(input_file_path)
-            seleted_column = 'bar'
-            job_runner.main(input_file_path, seleted_column, analysis_type, api_key)
+            seleted_columns = t["columns"]
 
+            if len(seleted_columns) < 1:
+                logging.warning("Missing selected column")
+            elif len(seleted_columns) == 1:
+                job_runner.main(input_file_path, seleted_columns[0], analysis_type, api_key)
+            else:
+                for c in seleted_columns:
+                    job_runner.main(input_file_path, c, analysis_type, api_key)
+                
 
 """
         Main entrypoint

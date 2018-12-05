@@ -13,6 +13,8 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s',
     datefmt="%Y-%m-%d %H:%M:%S")
 
+logging.getLogger("googleapiclient").setLevel(logging.ERROR)
+
 
 def request_analysis(a_type, key, input_text):
 

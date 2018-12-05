@@ -50,7 +50,7 @@ class Component(KBCEnvHandler):
             else:
                 for c in seleted_columns:
                     job_runner.main(input_file_path, c, analysis_type, api_key)
-                
+
 
 """
         Main entrypoint

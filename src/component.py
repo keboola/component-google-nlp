@@ -34,9 +34,9 @@ class Component(KBCEnvHandler):
         '''
         Main execution code
         '''
-        params = self.cfg_params # noqa
-        api_key = params.get('#API_key')
-        analysis_type = params.get('analysis_type')
+        # params = self.cfg_params # noqa
+        # api_key = params.get('#API_key')
+        # analysis_type = params.get('analysis_type')
         tables = self.configuration.get_input_tables()
 
         for t in tables:

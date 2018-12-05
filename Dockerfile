@@ -1,11 +1,8 @@
-FROM python:3.6-alpine
+FROM python:3.7.1-slim
 ENV PYTHONIOENCODING utf-8
 
 COPY . /code/
 
-RUN apk add make automake gcc g++ subversion python3-dev
-
-RUN apk add git
 RUN pip install flake8
 
 RUN pip install -r /code/requirements.txt

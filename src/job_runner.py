@@ -54,5 +54,3 @@ def main(input_file_path, seleted_column, analysis_type, api_key):
         df_result_d = request_analysis(analysis_type, api_key, q)
         for df_result_k in df_result_d:
             output(df_result_k, df_result_d[df_result_k])
-
-        break

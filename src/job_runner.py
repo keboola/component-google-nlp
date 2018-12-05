@@ -5,8 +5,8 @@ from service.analyzer import analyze_entities, analyze_sentiment, analyze_syntax
 from service.flattener import parse_syntax_res, parse_sentiment_res, parse_entity_res
 
 
-DEFAULT_TABLE_SOURCE = "./data/in/tables/"
-DEFAULT_TABLE_DESTINATION = "./data/out/tables/"
+DEFAULT_TABLE_SOURCE = "/data/in/tables/"
+DEFAULT_TABLE_DESTINATION = "/data/out/tables/"
 
 logging.basicConfig(
     level=logging.INFO,

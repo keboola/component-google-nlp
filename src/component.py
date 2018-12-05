@@ -35,10 +35,13 @@ class Component(KBCEnvHandler):
         Main execution code
         '''
         params = self.cfg_params # noqa
-        # api_key = params.get('#API_key')
-        # analysis_type = params.get('analysis_type')
-        # job_runner.main(analysis_type, api_key)
-        job_runner.test()
+        api_key = params.get('#API_key')
+        analysis_type = params.get('analysis_type')
+        tables = self.configuration.get_input_tables()
+
+        for t in tables:
+            print(t)
+            # job_runner.main(input_file_path, seleted_column, analysis_type, api_key)
 
 
 """
@@ -47,4 +50,3 @@ class Component(KBCEnvHandler):
 if __name__ == "__main__":
     comp = Component()
     comp.run()
-    print("hello jk")

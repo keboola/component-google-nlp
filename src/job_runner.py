@@ -54,8 +54,3 @@ def main(input_file_path, seleted_column, analysis_type, api_key):
             output(df_result_k, df_result_d[df_result_k])
 
         break
-
-
-def test():
-    df = pd.read_csv('/data/in/tables/google_nlp_sample_input.csv')
-    print(df)

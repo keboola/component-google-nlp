@@ -9,7 +9,7 @@ import job_runner
 
 MANDATORY_PARS = ['#API_key', 'analysis_type']
 
-APP_VERSION = '0.0.5'
+APP_VERSION = '0.0.8'
 
 
 class Component(KBCEnvHandler):

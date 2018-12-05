@@ -2,9 +2,9 @@ FROM python:3.6-alpine
 ENV PYTHONIOENCODING utf-8
 
 COPY . /code/
+RUN pip install --upgrade pip
 RUN apk add git
 RUN pip install flake8
-RUN apk add make automake gcc g++ subversion python3-dev
 
 RUN pip install -r /code/requirements.txt
 

@@ -1,7 +1,8 @@
 import os
 import logging
 import pandas as pd
-from service.analyzer import analyze_entities, analyze_sentiment, analyze_syntax, get_native_encoding_type, analyze_entity_sentiment
+from service.analyzer \
+    import analyze_entities, analyze_sentiment, analyze_syntax, get_native_encoding_type, analyze_entity_sentiment
 from service.flattener import parse_syntax_res, parse_sentiment_res, parse_entity_res, parse_entity_sentiment_res
 
 

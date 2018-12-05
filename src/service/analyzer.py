@@ -59,3 +59,20 @@ def analyze_syntax(text, api_key, encoding='UTF32'):
     response = request.execute()
 
     return response
+
+
+def analyze_entity_sentiment(text, api_key, encoding='UTF32'):
+    body = {
+        'document': {
+            'type': 'PLAIN_TEXT',
+            'content': text,
+        },
+        'encoding_type': encoding
+    }
+
+    service = googleapiclient.discovery.build('language', 'v1', developerKey=api_key)
+
+    request = service.documents().analyzeEntitySentiment(body=body)
+    response = request.execute()
+
+    return response

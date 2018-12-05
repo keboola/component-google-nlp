@@ -1,8 +1,8 @@
 import os
 import logging
 import pandas as pd
-from service.analyzer import analyze_entities, analyze_sentiment, analyze_syntax, get_native_encoding_type
-from service.flattener import parse_syntax_res, parse_sentiment_res, parse_entity_res
+from service.analyzer import analyze_entities, analyze_sentiment, analyze_syntax, get_native_encoding_type, analyze_entity_sentiment
+from service.flattener import parse_syntax_res, parse_sentiment_res, parse_entity_res, parse_entity_sentiment_res
 
 
 DEFAULT_TABLE_SOURCE = "/data/in/tables/"
@@ -27,6 +27,9 @@ def request_analysis(a_type, key, input_text):
     elif a_type == 'syntax':
         result = analyze_syntax(input_text, key, get_native_encoding_type())
         df_result = parse_syntax_res(input_text, result)
+    elif a_type == 'entity_sentiment':
+        result = analyze_entity_sentiment(input_text, key, get_native_encoding_type())
+        df_result = parse_entity_sentiment_res(input_text, result)
 
     return df_result
 

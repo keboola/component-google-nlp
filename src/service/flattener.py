@@ -145,9 +145,9 @@ def parse_entity_res(query_text, json_obj):
             'metadata_wikipedia_url': wikipedia_url
         })
 
-        mentions = e.get('mentions')
+        mentions_raw = e.get('mentions')
 
-        for m in mentions:
+        for m in mentions_raw:
             text = m.get('text')
             if text:
                 content = metadata.get('content')
@@ -171,4 +171,79 @@ def parse_entity_res(query_text, json_obj):
     return {
         "entities": df_entities,
         "mentions": df_mentions
+    }
+
+
+# this handles 1 HTTP response = 1 text
+def parse_entity_sentiment_res(query_text, json_obj):
+    entities = []
+    entities_raw = json_obj.get('entities')
+
+    mentions = []
+
+    for e in entities_raw:
+        name = e.get('name')
+        e_type = e.get('type')
+        salience = e.get('salience')
+        sentiment = e.get('sentiment')
+        if sentiment:
+            magnitude = sentiment.get('magnitude')
+            score = sentiment.get('score')
+        else:
+            magnitude = None
+            score = None
+
+        metadata = e.get('metadata')
+        if metadata:
+            mid = metadata.get('mid')
+            wikipedia_url = metadata.get('wikipedia_url')
+        else:
+            mid = None
+            wikipedia_url = None
+
+        entities.append({
+            'name': name,
+            'type': e_type,
+            'salience': salience,
+            'metadata_mid': mid,
+            'metadata_wikipedia_url': wikipedia_url,
+            'sentiment_magnitude': magnitude,
+            'sentiment_score': score
+        })
+
+        mentions_raw = e.get('mentions')
+        for m in mentions_raw:
+            text = m.get('text')
+            if text:
+                content = metadata.get('content')
+                begin_offset = metadata.get('beginOffset')
+            else:
+                content = None
+                begin_offset = None
+
+            m_sentiment = m.get('sentiment')
+            if m_sentiment:
+                m_magnitude = m_sentiment.get('magnitude')
+                m_score = m_sentiment.get('score')
+            else:
+                m_magnitude = None
+                m_score = None
+            m_type = m.get('type')
+            mentions.append({
+                'content': content,
+                'beginOffset': begin_offset,
+                'type': m_type,
+                'sentiment_magnitude': m_magnitude,
+                'sentiment_score': m_score
+            })
+
+    df_entities = pd.DataFrame.from_records(entities)
+    df_mentions = pd.DataFrame.from_records(mentions)
+
+    df_entities = _add_pk_col(df_entities, query_text)
+    df_mentions = _add_pk_col(df_mentions, query_text)
+
+    return {
+        "entities_sentiment": df_entities,
+        "mentions_sentiment": df_mentions
     }

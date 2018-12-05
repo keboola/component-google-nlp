@@ -1,8 +1,8 @@
 import os
 import logging
 import pandas as pd
-from .analyzer import analyze_entities, analyze_sentiment, analyze_syntax, get_native_encoding_type
-from .flattener import parse_syntax_res, parse_sentiment_res, parse_entity_res
+from service.analyzer import analyze_entities, analyze_sentiment, analyze_syntax, get_native_encoding_type
+from service.flattener import parse_syntax_res, parse_sentiment_res, parse_entity_res
 
 
 DEFAULT_TABLE_SOURCE = "./data/in/tables/"

@@ -4,9 +4,11 @@ ENV PYTHONIOENCODING utf-8
 COPY . /code/
 RUN apk add git
 RUN pip install flake8
-RUN pip install pandas
+RUN ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future pip install --upgrade numpy
 
 RUN pip install -r /code/requirements.txt
+
+
 
 WORKDIR /code/
 

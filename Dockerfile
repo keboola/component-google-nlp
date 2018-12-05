@@ -4,6 +4,7 @@ ENV PYTHONIOENCODING utf-8
 COPY . /code/
 RUN apk add git
 RUN pip install flake8
+RUN pip install pandas
 
 RUN pip install -r /code/requirements.txt
 

@@ -5,7 +5,7 @@ Template Component main class.
 
 from kbc.env_handler import KBCEnvHandler
 import logging
-# import job_runner
+import job_runner
 
 MANDATORY_PARS = ['#API_key', 'analysis_type']
 
@@ -34,14 +34,16 @@ class Component(KBCEnvHandler):
         '''
         Main execution code
         '''
-        # params = self.cfg_params # noqa
-        # api_key = params.get('#API_key')
-        # analysis_type = params.get('analysis_type')
+        params = self.cfg_params # noqa
+        api_key = params.get('#API_key')
+        analysis_type = params.get('analysis_type')
         tables = self.configuration.get_input_tables()
 
         for t in tables:
-            print(t)
-            # job_runner.main(input_file_path, seleted_column, analysis_type, api_key)
+            input_file_path = t["full_path"]
+            print(input_file_path)
+            seleted_column = 'bar'
+            job_runner.main(input_file_path, seleted_column, analysis_type, api_key)
 
 
 """

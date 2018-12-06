@@ -145,8 +145,8 @@ def parse_entity_res(record, json_obj):
         for m in mentions_raw:
             text = m.get('text')
             if text:
-                content = metadata.get('content')
-                begin_offset = metadata.get('beginOffset')
+                content = text.get('content')
+                begin_offset = text.get('beginOffset')
             else:
                 content = None
                 begin_offset = None
@@ -213,8 +213,8 @@ def parse_entity_sentiment_res(record, json_obj):
         for m in mentions_raw:
             text = m.get('text')
             if text:
-                content = metadata.get('content')
-                begin_offset = metadata.get('beginOffset')
+                content = text.get('content')
+                begin_offset = text.get('beginOffset')
             else:
                 content = None
                 begin_offset = None

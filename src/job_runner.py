@@ -54,12 +54,12 @@ def main(input_file_path, analysis_type, api_key):
     cols = df.columns.values
     msg = """Please prepare all your input tables with the 2 columns below:
     - id: the original ID column in your raw table, this is only for you to have a reference key
-    - query: the column of texts you want to analyze Other columns in the tables will be omitted."""
-    if not ('id' in cols) or not ('query' in cols):
+    - text: the column of texts you want to analyze Other columns in the tables will be omitted."""
+    if not ('id' in cols) or not ('text' in cols):
         logging.ERROR(msg)
         exit()
 
-    df = df[['id', 'query']]
+    df = df[['id', 'text']]
     records = df.to_records(index=False)
 
     for r in records:

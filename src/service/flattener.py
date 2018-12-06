@@ -78,7 +78,7 @@ def parse_sentiment_res(record, json_obj):
 
     d_magnitude = json_obj.get('documentSentiment').get('magnitude')
     d_score = json_obj.get('documentSentiment').get('score')
-    language = json_obj.get('documentSentiment').get('language')
+    language = json_obj.get('language')
 
     document_sentiment = [{
         'magnitude': d_magnitude,
@@ -116,6 +116,7 @@ def parse_sentiment_res(record, json_obj):
 # this handles 1 HTTP response = 1 text
 def parse_entity_res(record, json_obj):
     entities = []
+    language = json_obj.get('language')
     entities_raw = json_obj.get('entities')
     mentions = []
 
@@ -162,6 +163,9 @@ def parse_entity_res(record, json_obj):
     df_entities = _add_pk_col(df_entities, record)
     df_mentions = _add_pk_col(df_mentions, record)
 
+    df_entities['language'] = language
+    df_mentions['language'] = language
+
     return {
         "entities": df_entities,
         "mentions": df_mentions
@@ -172,7 +176,7 @@ def parse_entity_res(record, json_obj):
 def parse_entity_sentiment_res(record, json_obj):
     entities = []
     entities_raw = json_obj.get('entities')
-
+    language = json_obj.get('language')
     mentions = []
 
     for e in entities_raw:
@@ -236,6 +240,9 @@ def parse_entity_sentiment_res(record, json_obj):
 
     df_entities = _add_pk_col(df_entities, record)
     df_mentions = _add_pk_col(df_mentions, record)
+
+    df_entities['language'] = language
+    df_mentions['language'] = language
 
     return {
         "entities_sentiment": df_entities,

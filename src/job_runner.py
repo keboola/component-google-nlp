@@ -51,6 +51,14 @@ def output(filename, data):
 
 def main(input_file_path, analysis_type, api_key):
     df = pd.read_csv(input_file_path)
+    cols = df.columns.values
+    msg = """Please prepare all your input tables with the 2 columns below:
+    - id: the original ID column in your raw table, this is only for you to have a reference key
+    - query: the column of texts you want to analyze Other columns in the tables will be omitted."""
+    if not ('id' in cols) or not ('query' in cols):
+        logging.ERROR(msg)
+        exit()
+
     df = df[['id', 'query']]
     records = df.to_records(index=False)
 

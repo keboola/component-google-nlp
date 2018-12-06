@@ -56,7 +56,7 @@ def main(input_file_path, analysis_type, api_key):
     - id: the original ID column in your raw table, this is only for you to have a reference key
     - text: the column of texts you want to analyze Other columns in the tables will be omitted."""
     if not ('id' in cols) or not ('text' in cols):
-        logging.ERROR(msg)
+        logging.error(msg)
         exit()
 
     df = df[['id', 'text']]

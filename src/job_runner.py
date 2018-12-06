@@ -17,20 +17,20 @@ logging.basicConfig(
 logging.getLogger("googleapiclient").setLevel(logging.ERROR)
 
 
-def request_analysis(a_type, key, input_text):
-
+def request_analysis(a_type, key, record):
+    input_text = record[1]
     if a_type == 'entities':
         result = analyze_entities(input_text, key, get_native_encoding_type())
-        df_result = parse_entity_res(input_text, result)
+        df_result = parse_entity_res(record, result)
     elif a_type == 'sentiment':
         result = analyze_sentiment(input_text, key, get_native_encoding_type())
-        df_result = parse_sentiment_res(input_text, result)
+        df_result = parse_sentiment_res(record, result)
     elif a_type == 'syntax':
         result = analyze_syntax(input_text, key, get_native_encoding_type())
-        df_result = parse_syntax_res(input_text, result)
+        df_result = parse_syntax_res(record, result)
     elif a_type == 'entity_sentiment':
         result = analyze_entity_sentiment(input_text, key, get_native_encoding_type())
-        df_result = parse_entity_sentiment_res(input_text, result)
+        df_result = parse_entity_sentiment_res(record, result)
 
     return df_result
 
@@ -49,12 +49,13 @@ def output(filename, data):
         b.close()
 
 
-def main(input_file_path, seleted_column, analysis_type, api_key):
-
+def main(input_file_path, analysis_type, api_key):
     df = pd.read_csv(input_file_path)
-    queries = df[seleted_column]
+    df = df[['id', 'query']]
+    records = df.to_records(index=False)
 
-    for q in queries:
-        df_result_d = request_analysis(analysis_type, api_key, q)
+    for r in records:
+        logging.info("Analyzing: {} ...".format(r[1][:50]))
+        df_result_d = request_analysis(analysis_type, api_key, r)
         for df_result_k in df_result_d:
             output(df_result_k, df_result_d[df_result_k])

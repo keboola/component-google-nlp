@@ -1,19 +1,13 @@
-
 import pandas as pd
-import hashlib
 
 
-def _hash_id(query_text):
-    return hashlib.md5(query_text.encode('utf-8')).hexdigest()
-
-
-def _add_pk_col(df, query_text):
-    df['query_text'] = query_text
-    df['query_id'] = _hash_id(query_text)
+def _add_pk_col(df, record):
+    df['query_text'] = record[1]
+    df['query_id'] = record[0]
     return df
 
 
-def parse_syntax_res(query_text, json_obj):
+def parse_syntax_res(record, json_obj):
 
     sentences = []
     tokens = []
@@ -70,8 +64,8 @@ def parse_syntax_res(query_text, json_obj):
     df_sentences = pd.DataFrame.from_records(sentences)
     df_tokens = pd.DataFrame.from_records(tokens)
 
-    df_sentences = _add_pk_col(df_sentences, query_text)
-    df_tokens = _add_pk_col(df_tokens, query_text)
+    df_sentences = _add_pk_col(df_sentences, record)
+    df_tokens = _add_pk_col(df_tokens, record)
 
     return {
         "sentences": df_sentences,
@@ -80,7 +74,7 @@ def parse_syntax_res(query_text, json_obj):
 
 
 # this handles 1 HTTP response
-def parse_sentiment_res(query_text, json_obj):
+def parse_sentiment_res(record, json_obj):
 
     d_magnitude = json_obj.get('documentSentiment').get('magnitude')
     d_score = json_obj.get('documentSentiment').get('score')
@@ -110,8 +104,8 @@ def parse_sentiment_res(query_text, json_obj):
     df_document_sentiment = pd.DataFrame.from_records(document_sentiment)
     df_sentence_sentiments = pd.DataFrame.from_records(sentence_sentiments)
 
-    df_document_sentiment = _add_pk_col(df_document_sentiment, query_text)
-    df_sentence_sentiments = _add_pk_col(df_sentence_sentiments, query_text)
+    df_document_sentiment = _add_pk_col(df_document_sentiment, record)
+    df_sentence_sentiments = _add_pk_col(df_sentence_sentiments, record)
 
     return {
         "document_sentiment": df_document_sentiment,
@@ -120,7 +114,7 @@ def parse_sentiment_res(query_text, json_obj):
 
 
 # this handles 1 HTTP response = 1 text
-def parse_entity_res(query_text, json_obj):
+def parse_entity_res(record, json_obj):
     entities = []
     entities_raw = json_obj.get('entities')
     mentions = []
@@ -165,8 +159,8 @@ def parse_entity_res(query_text, json_obj):
     df_entities = pd.DataFrame.from_records(entities)
     df_mentions = pd.DataFrame.from_records(mentions)
 
-    df_entities = _add_pk_col(df_entities, query_text)
-    df_mentions = _add_pk_col(df_mentions, query_text)
+    df_entities = _add_pk_col(df_entities, record)
+    df_mentions = _add_pk_col(df_mentions, record)
 
     return {
         "entities": df_entities,
@@ -175,7 +169,7 @@ def parse_entity_res(query_text, json_obj):
 
 
 # this handles 1 HTTP response = 1 text
-def parse_entity_sentiment_res(query_text, json_obj):
+def parse_entity_sentiment_res(record, json_obj):
     entities = []
     entities_raw = json_obj.get('entities')
 
@@ -240,8 +234,8 @@ def parse_entity_sentiment_res(query_text, json_obj):
     df_entities = pd.DataFrame.from_records(entities)
     df_mentions = pd.DataFrame.from_records(mentions)
 
-    df_entities = _add_pk_col(df_entities, query_text)
-    df_mentions = _add_pk_col(df_mentions, query_text)
+    df_entities = _add_pk_col(df_entities, record)
+    df_mentions = _add_pk_col(df_mentions, record)
 
     return {
         "entities_sentiment": df_entities,

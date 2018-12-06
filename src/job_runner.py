@@ -9,11 +9,6 @@ from service.flattener import parse_syntax_res, parse_sentiment_res, parse_entit
 DEFAULT_TABLE_SOURCE = "/data/in/tables/"
 DEFAULT_TABLE_DESTINATION = "/data/out/tables/"
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    datefmt="%Y-%m-%d %H:%M:%S")
-
 logging.getLogger("googleapiclient").setLevel(logging.ERROR)
 
 

@@ -2,7 +2,7 @@ import pandas as pd
 
 
 def _add_pk_col(df, record):
-    df['query_text'] = record[1]
+    # df['query_text'] = record[1]
     df['query_id'] = record[0]
     return df
 

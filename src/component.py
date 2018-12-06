@@ -11,6 +11,7 @@ MANDATORY_PARS = ['#API_key', 'analysis_type']
 
 APP_VERSION = '0.0.19'
 
+
 class Component(KBCEnvHandler):
 
     def __init__(self, debug=False):

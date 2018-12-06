@@ -152,6 +152,8 @@ def parse_entity_res(record, json_obj):
                 begin_offset = None
             m_type = m.get('type')
             mentions.append({
+                'entity_name': name,
+                'entity_type': e_type,
                 'content': content,
                 'beginOffset': begin_offset,
                 'type': m_type

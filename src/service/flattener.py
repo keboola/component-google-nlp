@@ -38,7 +38,8 @@ def parse_syntax_res(record, json_obj):
         part_of_speech_reciprocity = t.get('partOfSpeech').get('reciprocity')
         part_of_speech_tense = t.get('partOfSpeech').get('tense')
         part_of_speech_voice = t.get('partOfSpeech').get('voice')
-        dependency_edge_head_token_index = t.get('dependencyEdge').get('headTokenIndex')
+        dependency_edge_head_token_index = t.get(
+            'dependencyEdge').get('headTokenIndex')
         dependency_edge_label = t.get('dependencyEdge').get('label')
         lemma = t.get('lemma')
         tokens.append({
@@ -229,7 +230,7 @@ def parse_entity_sentiment_res(record, json_obj):
                 m_magnitude = None
                 m_score = None
             m_type = m.get('type')
-            mentions.append({                
+            mentions.append({
                 'entity_name': name,
                 'entity_type': e_type,
                 'content': content,

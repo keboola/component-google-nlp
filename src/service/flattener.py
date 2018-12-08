@@ -229,7 +229,9 @@ def parse_entity_sentiment_res(record, json_obj):
                 m_magnitude = None
                 m_score = None
             m_type = m.get('type')
-            mentions.append({
+            mentions.append({                
+                'entity_name': name,
+                'entity_type': e_type,
                 'content': content,
                 'beginOffset': begin_offset,
                 'type': m_type,

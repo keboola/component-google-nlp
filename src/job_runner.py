@@ -68,7 +68,7 @@ def main(input_file_path, analysis_type, api_key, out_folder):
                 df_result_d = request_analysis(analysis_type, api_key, r)
             except HttpError as e:
                 ln = 'N/A'
-                if e.content and json.loads(e.content).get('error', '').get('message', '').find('not supported for entity analysis.') > 0:
+                if json.loads(e.content).get('error', '').get('message', '').find('not supported for entity analysis.') > 0: # noqa
                     err = json.loads(e.content)
                     ln = _get_language_from_error(err['error']['message'])
                 # write error output

@@ -41,7 +41,7 @@ class Component(KBCEnvHandler):
 
         for t in tables:
             input_file_path = t["full_path"]
-            job_runner.main(input_file_path, analysis_type, api_key)
+            job_runner.main(input_file_path, analysis_type, api_key, self.tables_out_path)
 
 
 """

@@ -1,13 +1,15 @@
 import os
 import logging
 import pandas as pd
+import json
+import re
+import csv
+from googleapiclient.errors import HttpError
 from service.analyzer \
     import analyze_entities, analyze_sentiment, analyze_syntax, get_native_encoding_type, analyze_entity_sentiment
 from service.flattener import parse_syntax_res, parse_sentiment_res, parse_entity_res, parse_entity_sentiment_res
 
-
-DEFAULT_TABLE_SOURCE = "/data/in/tables/"
-DEFAULT_TABLE_DESTINATION = "/data/out/tables/"
+ERR_HEADER = ['query_id', 'text', 'lang']
 
 logging.getLogger("googleapiclient").setLevel(logging.ERROR)
 
@@ -24,15 +26,16 @@ def request_analysis(a_type, key, record):
         result = analyze_syntax(input_text, key, get_native_encoding_type())
         df_result = parse_syntax_res(record, result)
     elif a_type == 'entity_sentiment':
-        result = analyze_entity_sentiment(input_text, key, get_native_encoding_type())
+        result = analyze_entity_sentiment(
+            input_text, key, get_native_encoding_type())
         df_result = parse_entity_sentiment_res(record, result)
 
     return df_result
 
 
-def output(filename, data):
+def output(filename, data, out_folder):
 
-    dest = DEFAULT_TABLE_DESTINATION + filename + ".csv"
+    dest = out_folder + filename + ".csv"
 
     if os.path.isfile(dest):
         with open(dest, 'a') as b:
@@ -44,7 +47,7 @@ def output(filename, data):
         b.close()
 
 
-def main(input_file_path, analysis_type, api_key):
+def main(input_file_path, analysis_type, api_key, out_folder):
     df = pd.read_csv(input_file_path)
     cols = df.columns.values
     msg = """Please prepare all your input tables with the 2 columns below:
@@ -56,9 +59,29 @@ def main(input_file_path, analysis_type, api_key):
 
     df = df[['id', 'text']]
     records = df.to_records(index=False)
+    with open(os.path.join(out_folder, 'lang_errors.csv'), 'w+', newline='') as lang_errs:
+        err_writer = csv.writer(lang_errs)
+        err_writer.writerow(ERR_HEADER)
+        for r in records:
+            logging.info("Analyzing: {} ...".format(r[1][:50]))
+            try:
+                df_result_d = request_analysis(analysis_type, api_key, r)
+            except HttpError as e:
+                ln = 'N/A'
+                if json.loads(e.content).get('error', '').get('message', '').find('not supported for entity analysis.') > 0: # noqa
+                    err = json.loads(e.content)
+                    ln = _get_language_from_error(err['error']['message'])
+                # write error output
+                err_writer.writerow(
+                    [r[0], err['error']['message'], ln])
 
-    for r in records:
-        logging.info("Analyzing: {} ...".format(r[1][:50]))
-        df_result_d = request_analysis(analysis_type, api_key, r)
-        for df_result_k in df_result_d:
-            output(df_result_k, df_result_d[df_result_k])
+                logging.error(err['error']['message'])
+
+            for df_result_k in df_result_d:
+                output(df_result_k, df_result_d[df_result_k], out_folder)
+
+
+def _get_language_from_error(error_text):
+    m = re.search(
+        'The language (.*) is not supported for entity analysis.', error_text)
+    return m.group(1)

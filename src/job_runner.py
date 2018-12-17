@@ -35,7 +35,7 @@ def request_analysis(a_type, key, record):
 
 def output(filename, data, out_folder):
 
-    dest = out_folder + filename + ".csv"
+    dest = os.path.join(out_folder,filename + ".csv")
 
     if os.path.isfile(dest):
         with open(dest, 'a') as b:

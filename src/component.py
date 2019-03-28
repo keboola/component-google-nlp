@@ -21,8 +21,8 @@ class Component(KBCEnvHandler):
             debug = True
 
         self.set_default_logger('DEBUG' if debug else 'INFO')
-        logging.info('Running version %s', APP_VERSION)
-        logging.info('Loading configuration...')
+        logging.debug('Running version %s', APP_VERSION)
+        logging.debug('Loading configuration...')
 
         try:
             self.validateConfig()

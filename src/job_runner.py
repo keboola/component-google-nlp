@@ -61,6 +61,7 @@ def main(input_file_path, analysis_type, api_key, out_folder):
         err_writer = csv.writer(lang_errs)
         err_writer.writerow(ERR_HEADER)
         for r in records:
+            df_result_d = {}
             logging.info("Analyzing: {} ...".format(r[1][:50]))
             try:
                 df_result_d = request_analysis(analysis_type, api_key, r)

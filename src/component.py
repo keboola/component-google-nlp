@@ -6,7 +6,6 @@ Template Component main class.
 from kbc.env_handler import KBCEnvHandler
 import logging
 import job_runner
-import sys
 
 MANDATORY_PARS = ['#API_key', 'analysis_type']
 

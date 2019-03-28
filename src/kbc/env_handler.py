@@ -96,12 +96,19 @@ class KBCEnvHandler:
 # ================================= Logging ==============================
 
     def set_default_logger(self, log_level='INFO'):  # noqa: E301
+        class InfoFilter(logging.Filter):
+            def filter(self, rec):
+                return rec.levelno in (logging.DEBUG, logging.INFO)
 
-        hdl = logging.StreamHandler(sys.stdout)
+        hd1 = logging.StreamHandler(sys.stdout)
+        hd1.addFilter(InfoFilter())
+        hd2 = logging.StreamHandler()
+        hd2.setLevel(logging.WARNING)
+
         logging.basicConfig(
             level=log_level,
             format='%(levelname)s - %(message)s',
-            handlers=[hdl])
+            handlers=[hd1, hd2])
 
         logger = logging.getLogger()
         return logger

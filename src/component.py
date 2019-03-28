@@ -6,6 +6,7 @@ Template Component main class.
 from kbc.env_handler import KBCEnvHandler
 import logging
 import job_runner
+import sys
 
 MANDATORY_PARS = ['#API_key', 'analysis_type']
 
@@ -30,7 +31,7 @@ class Component(KBCEnvHandler):
             logging.error(e)
             exit(1)
 
-    def run(self, debug=True):
+    def run(self, debug=False):
         '''
         Main execution code
         '''
@@ -38,6 +39,9 @@ class Component(KBCEnvHandler):
         api_key = params.get('#API_key')
         analysis_type = params.get('analysis_type')
         tables = self.configuration.get_input_tables()
+
+        if not tables:
+            raise Exception("No input table found, please specify the input table in the input mapping section")
 
         for t in tables:
             input_file_path = t["full_path"]

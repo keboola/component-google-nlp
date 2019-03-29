@@ -67,7 +67,7 @@ def main(input_file_path, analysis_type, api_key, out_folder):
                 df_result_d = request_analysis(analysis_type, api_key, r)
             except HttpError as e:
                 # ln = 'N/A'
-                if json.loads(e.content).get('error', '').get('errors', '')[0].get('reason', '').find('keyInvalid') > 0:
+                if json.loads(e.content).get('error', '').get('errors', '')[0].get('reason').find('keyInvalid') > -1:
                     raise ValueError("The API Key is invalid")
                 elif json.loads(e.content).get('error', '').get('message', '').find(
                         'not supported for entity analysis.') > 0:  # noqa

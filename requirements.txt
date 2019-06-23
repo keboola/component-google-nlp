@@ -1,3 +1,4 @@
-https://bitbucket.org/kds_consulting_team/keboola-python-util-lib/get/0.2.4.zip#egg=kbc
+bs4
 logging_gelf
+https://bitbucket.org/kds_consulting_team/keboola-python-util-lib/get/0.2.4.zip#egg=kbc
 https://github.com/keboola/python-docker-application/zipball/master#egg=keboola

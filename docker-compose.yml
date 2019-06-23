@@ -9,8 +9,8 @@ services:
     environment:
       - KBC_DATADIR=./data
     command: 
-      -/bin/sh
-      -/code/scripts/run.sh
+      - /bin/sh
+      - /code/scripts/run.sh
   test:
     # Use to run flake8 and unittests checks
     build: .

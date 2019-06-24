@@ -1,0 +1,2015 @@
+{
+  "sentences": [
+    {
+      "text": {
+        "content": "Keboola brings data engineering and data analytics together on one single platform that anyone can use.",
+        "beginOffset": 0
+      },
+      "sentiment": {
+        "magnitude": 0.4,
+        "score": 0.4
+      }
+    },
+    {
+      "text": {
+        "content": "One click managed infrastructure, data hub, user provisioning, process automation - all rolled into one platform.",
+        "beginOffset": 104
+      },
+      "sentiment": {
+        "magnitude": 0.4,
+        "score": 0.4
+      }
+    },
+    {
+      "text": {
+        "content": "Call us at +420 739 632 821 or visit us at Křižíkova 488/115 Prague 8 186 00",
+        "beginOffset": 218
+      },
+      "sentiment": {
+        "magnitude": 0.2,
+        "score": 0.2
+      }
+    }
+  ],
+  "tokens": [
+    {
+      "text": {
+        "content": "Keboola",
+        "beginOffset": 0
+      },
+      "partOfSpeech": {
+        "tag": "NOUN",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "SINGULAR",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 1,
+        "label": "NSUBJ"
+      },
+      "lemma": "Keboola"
+    },
+    {
+      "text": {
+        "content": "brings",
+        "beginOffset": 8
+      },
+      "partOfSpeech": {
+        "tag": "VERB",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "INDICATIVE",
+        "number": "SINGULAR",
+        "person": "THIRD",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "PRESENT",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 1,
+        "label": "ROOT"
+      },
+      "lemma": "bring"
+    },
+    {
+      "text": {
+        "content": "data",
+        "beginOffset": 15
+      },
+      "partOfSpeech": {
+        "tag": "NOUN",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "SINGULAR",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 3,
+        "label": "NN"
+      },
+      "lemma": "data"
+    },
+    {
+      "text": {
+        "content": "engineering",
+        "beginOffset": 20
+      },
+      "partOfSpeech": {
+        "tag": "NOUN",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "SINGULAR",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 1,
+        "label": "DOBJ"
+      },
+      "lemma": "engineering"
+    },
+    {
+      "text": {
+        "content": "and",
+        "beginOffset": 32
+      },
+      "partOfSpeech": {
+        "tag": "CONJ",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 3,
+        "label": "CC"
+      },
+      "lemma": "and"
+    },
+    {
+      "text": {
+        "content": "data",
+        "beginOffset": 36
+      },
+      "partOfSpeech": {
+        "tag": "NOUN",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "SINGULAR",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 6,
+        "label": "NN"
+      },
+      "lemma": "data"
+    },
+    {
+      "text": {
+        "content": "analytics",
+        "beginOffset": 41
+      },
+      "partOfSpeech": {
+        "tag": "NOUN",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "SINGULAR",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 3,
+        "label": "CONJ"
+      },
+      "lemma": "analytic"
+    },
+    {
+      "text": {
+        "content": "together",
+        "beginOffset": 51
+      },
+      "partOfSpeech": {
+        "tag": "ADV",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 1,
+        "label": "ADVMOD"
+      },
+      "lemma": "together"
+    },
+    {
+      "text": {
+        "content": "on",
+        "beginOffset": 60
+      },
+      "partOfSpeech": {
+        "tag": "ADP",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 1,
+        "label": "PREP"
+      },
+      "lemma": "on"
+    },
+    {
+      "text": {
+        "content": "one",
+        "beginOffset": 63
+      },
+      "partOfSpeech": {
+        "tag": "NUM",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 11,
+        "label": "NUM"
+      },
+      "lemma": "one"
+    },
+    {
+      "text": {
+        "content": "single",
+        "beginOffset": 67
+      },
+      "partOfSpeech": {
+        "tag": "ADJ",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 11,
+        "label": "AMOD"
+      },
+      "lemma": "single"
+    },
+    {
+      "text": {
+        "content": "platform",
+        "beginOffset": 74
+      },
+      "partOfSpeech": {
+        "tag": "NOUN",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "SINGULAR",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 8,
+        "label": "POBJ"
+      },
+      "lemma": "platform"
+    },
+    {
+      "text": {
+        "content": "that",
+        "beginOffset": 83
+      },
+      "partOfSpeech": {
+        "tag": "DET",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 15,
+        "label": "DOBJ"
+      },
+      "lemma": "that"
+    },
+    {
+      "text": {
+        "content": "anyone",
+        "beginOffset": 88
+      },
+      "partOfSpeech": {
+        "tag": "NOUN",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "SINGULAR",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 15,
+        "label": "NSUBJ"
+      },
+      "lemma": "anyone"
+    },
+    {
+      "text": {
+        "content": "can",
+        "beginOffset": 95
+      },
+      "partOfSpeech": {
+        "tag": "VERB",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 15,
+        "label": "AUX"
+      },
+      "lemma": "can"
+    },
+    {
+      "text": {
+        "content": "use",
+        "beginOffset": 99
+      },
+      "partOfSpeech": {
+        "tag": "VERB",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 11,
+        "label": "RCMOD"
+      },
+      "lemma": "use"
+    },
+    {
+      "text": {
+        "content": ".",
+        "beginOffset": 102
+      },
+      "partOfSpeech": {
+        "tag": "PUNCT",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 1,
+        "label": "P"
+      },
+      "lemma": "."
+    },
+    {
+      "text": {
+        "content": "One",
+        "beginOffset": 104
+      },
+      "partOfSpeech": {
+        "tag": "NUM",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 18,
+        "label": "NUM"
+      },
+      "lemma": "One"
+    },
+    {
+      "text": {
+        "content": "click",
+        "beginOffset": 108
+      },
+      "partOfSpeech": {
+        "tag": "NOUN",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "IMPERATIVE",
+        "number": "SINGULAR",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 19,
+        "label": "NSUBJ"
+      },
+      "lemma": "click"
+    },
+    {
+      "text": {
+        "content": "managed",
+        "beginOffset": 114
+      },
+      "partOfSpeech": {
+        "tag": "VERB",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "INDICATIVE",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "PAST",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 19,
+        "label": "ROOT"
+      },
+      "lemma": "manage"
+    },
+    {
+      "text": {
+        "content": "infrastructure",
+        "beginOffset": 122
+      },
+      "partOfSpeech": {
+        "tag": "NOUN",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "SINGULAR",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 32,
+        "label": "NSUBJ"
+      },
+      "lemma": "infrastructure"
+    },
+    {
+      "text": {
+        "content": ",",
+        "beginOffset": 136
+      },
+      "partOfSpeech": {
+        "tag": "PUNCT",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 20,
+        "label": "P"
+      },
+      "lemma": ","
+    },
+    {
+      "text": {
+        "content": "data",
+        "beginOffset": 138
+      },
+      "partOfSpeech": {
+        "tag": "NOUN",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "SINGULAR",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 23,
+        "label": "NN"
+      },
+      "lemma": "data"
+    },
+    {
+      "text": {
+        "content": "hub",
+        "beginOffset": 143
+      },
+      "partOfSpeech": {
+        "tag": "NOUN",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "SINGULAR",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 20,
+        "label": "CONJ"
+      },
+      "lemma": "hub"
+    },
+    {
+      "text": {
+        "content": ",",
+        "beginOffset": 146
+      },
+      "partOfSpeech": {
+        "tag": "PUNCT",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 20,
+        "label": "P"
+      },
+      "lemma": ","
+    },
+    {
+      "text": {
+        "content": "user",
+        "beginOffset": 148
+      },
+      "partOfSpeech": {
+        "tag": "NOUN",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "SINGULAR",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 26,
+        "label": "NN"
+      },
+      "lemma": "user"
+    },
+    {
+      "text": {
+        "content": "provisioning",
+        "beginOffset": 153
+      },
+      "partOfSpeech": {
+        "tag": "NOUN",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "SINGULAR",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 20,
+        "label": "APPOS"
+      },
+      "lemma": "provisioning"
+    },
+    {
+      "text": {
+        "content": ",",
+        "beginOffset": 165
+      },
+      "partOfSpeech": {
+        "tag": "PUNCT",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 20,
+        "label": "P"
+      },
+      "lemma": ","
+    },
+    {
+      "text": {
+        "content": "process",
+        "beginOffset": 167
+      },
+      "partOfSpeech": {
+        "tag": "NOUN",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "SINGULAR",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 29,
+        "label": "NN"
+      },
+      "lemma": "process"
+    },
+    {
+      "text": {
+        "content": "automation",
+        "beginOffset": 175
+      },
+      "partOfSpeech": {
+        "tag": "NOUN",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "SINGULAR",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 20,
+        "label": "APPOS"
+      },
+      "lemma": "automation"
+    },
+    {
+      "text": {
+        "content": "-",
+        "beginOffset": 186
+      },
+      "partOfSpeech": {
+        "tag": "PUNCT",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 20,
+        "label": "P"
+      },
+      "lemma": "-"
+    },
+    {
+      "text": {
+        "content": "all",
+        "beginOffset": 188
+      },
+      "partOfSpeech": {
+        "tag": "DET",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 20,
+        "label": "DEP"
+      },
+      "lemma": "all"
+    },
+    {
+      "text": {
+        "content": "rolled",
+        "beginOffset": 192
+      },
+      "partOfSpeech": {
+        "tag": "VERB",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "INDICATIVE",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "PAST",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 19,
+        "label": "CCOMP"
+      },
+      "lemma": "roll"
+    },
+    {
+      "text": {
+        "content": "into",
+        "beginOffset": 199
+      },
+      "partOfSpeech": {
+        "tag": "ADP",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 32,
+        "label": "PREP"
+      },
+      "lemma": "into"
+    },
+    {
+      "text": {
+        "content": "one",
+        "beginOffset": 204
+      },
+      "partOfSpeech": {
+        "tag": "NUM",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 35,
+        "label": "NUM"
+      },
+      "lemma": "one"
+    },
+    {
+      "text": {
+        "content": "platform",
+        "beginOffset": 208
+      },
+      "partOfSpeech": {
+        "tag": "NOUN",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "SINGULAR",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 33,
+        "label": "POBJ"
+      },
+      "lemma": "platform"
+    },
+    {
+      "text": {
+        "content": ".",
+        "beginOffset": 216
+      },
+      "partOfSpeech": {
+        "tag": "PUNCT",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 19,
+        "label": "P"
+      },
+      "lemma": "."
+    },
+    {
+      "text": {
+        "content": "Call",
+        "beginOffset": 218
+      },
+      "partOfSpeech": {
+        "tag": "VERB",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "IMPERATIVE",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 37,
+        "label": "ROOT"
+      },
+      "lemma": "Call"
+    },
+    {
+      "text": {
+        "content": "us",
+        "beginOffset": 223
+      },
+      "partOfSpeech": {
+        "tag": "PRON",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "ACCUSATIVE",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "PLURAL",
+        "person": "FIRST",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 37,
+        "label": "DOBJ"
+      },
+      "lemma": "us"
+    },
+    {
+      "text": {
+        "content": "at",
+        "beginOffset": 226
+      },
+      "partOfSpeech": {
+        "tag": "ADP",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 37,
+        "label": "PREP"
+      },
+      "lemma": "at"
+    },
+    {
+      "text": {
+        "content": "+",
+        "beginOffset": 229
+      },
+      "partOfSpeech": {
+        "tag": "X",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 39,
+        "label": "P"
+      },
+      "lemma": "+"
+    },
+    {
+      "text": {
+        "content": "420",
+        "beginOffset": 230
+      },
+      "partOfSpeech": {
+        "tag": "NUM",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 43,
+        "label": "NUMBER"
+      },
+      "lemma": "420"
+    },
+    {
+      "text": {
+        "content": "739",
+        "beginOffset": 234
+      },
+      "partOfSpeech": {
+        "tag": "NUM",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 43,
+        "label": "NUMBER"
+      },
+      "lemma": "739"
+    },
+    {
+      "text": {
+        "content": "632",
+        "beginOffset": 238
+      },
+      "partOfSpeech": {
+        "tag": "NUM",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 44,
+        "label": "NUM"
+      },
+      "lemma": "632"
+    },
+    {
+      "text": {
+        "content": "821",
+        "beginOffset": 242
+      },
+      "partOfSpeech": {
+        "tag": "NUM",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 39,
+        "label": "POBJ"
+      },
+      "lemma": "821"
+    },
+    {
+      "text": {
+        "content": "or",
+        "beginOffset": 246
+      },
+      "partOfSpeech": {
+        "tag": "CONJ",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 37,
+        "label": "CC"
+      },
+      "lemma": "or"
+    },
+    {
+      "text": {
+        "content": "visit",
+        "beginOffset": 249
+      },
+      "partOfSpeech": {
+        "tag": "VERB",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 37,
+        "label": "CONJ"
+      },
+      "lemma": "visit"
+    },
+    {
+      "text": {
+        "content": "us",
+        "beginOffset": 255
+      },
+      "partOfSpeech": {
+        "tag": "PRON",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "ACCUSATIVE",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "PLURAL",
+        "person": "FIRST",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 46,
+        "label": "DOBJ"
+      },
+      "lemma": "us"
+    },
+    {
+      "text": {
+        "content": "at",
+        "beginOffset": 258
+      },
+      "partOfSpeech": {
+        "tag": "ADP",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 46,
+        "label": "PREP"
+      },
+      "lemma": "at"
+    },
+    {
+      "text": {
+        "content": "Křižíkova",
+        "beginOffset": 261
+      },
+      "partOfSpeech": {
+        "tag": "NOUN",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "SINGULAR",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 48,
+        "label": "POBJ"
+      },
+      "lemma": "Křižíkova"
+    },
+    {
+      "text": {
+        "content": "488",
+        "beginOffset": 274
+      },
+      "partOfSpeech": {
+        "tag": "NUM",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 53,
+        "label": "NUM"
+      },
+      "lemma": "488"
+    },
+    {
+      "text": {
+        "content": "/",
+        "beginOffset": 277
+      },
+      "partOfSpeech": {
+        "tag": "X",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 53,
+        "label": "P"
+      },
+      "lemma": "/"
+    },
+    {
+      "text": {
+        "content": "115",
+        "beginOffset": 278
+      },
+      "partOfSpeech": {
+        "tag": "NUM",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 53,
+        "label": "NUM"
+      },
+      "lemma": "115"
+    },
+    {
+      "text": {
+        "content": "Prague",
+        "beginOffset": 282
+      },
+      "partOfSpeech": {
+        "tag": "NOUN",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "SINGULAR",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 37,
+        "label": "DOBJ"
+      },
+      "lemma": "Prague"
+    },
+    {
+      "text": {
+        "content": "8",
+        "beginOffset": 289
+      },
+      "partOfSpeech": {
+        "tag": "NUM",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 53,
+        "label": "NUM"
+      },
+      "lemma": "8"
+    },
+    {
+      "text": {
+        "content": "186",
+        "beginOffset": 291
+      },
+      "partOfSpeech": {
+        "tag": "NUM",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 56,
+        "label": "NUM"
+      },
+      "lemma": "186"
+    },
+    {
+      "text": {
+        "content": "00",
+        "beginOffset": 295
+      },
+      "partOfSpeech": {
+        "tag": "NUM",
+        "aspect": "ASPECT_UNKNOWN",
+        "case": "CASE_UNKNOWN",
+        "form": "FORM_UNKNOWN",
+        "gender": "GENDER_UNKNOWN",
+        "mood": "MOOD_UNKNOWN",
+        "number": "NUMBER_UNKNOWN",
+        "person": "PERSON_UNKNOWN",
+        "proper": "PROPER_UNKNOWN",
+        "reciprocity": "RECIPROCITY_UNKNOWN",
+        "tense": "TENSE_UNKNOWN",
+        "voice": "VOICE_UNKNOWN"
+      },
+      "dependencyEdge": {
+        "headTokenIndex": 53,
+        "label": "DEP"
+      },
+      "lemma": "00"
+    }
+  ],
+  "entities": [
+    {
+      "name": "platform",
+      "type": "OTHER",
+      "metadata": {},
+      "salience": 0.22810584,
+      "mentions": [
+        {
+          "text": {
+            "content": "platform",
+            "beginOffset": 74
+          },
+          "type": "COMMON",
+          "sentiment": {
+            "magnitude": 0.2,
+            "score": 0.2
+          }
+        }
+      ],
+      "sentiment": {
+        "magnitude": 0.5,
+        "score": 0.2
+      }
+    },
+    {
+      "name": "data analytics",
+      "type": "OTHER",
+      "metadata": {},
+      "salience": 0.20965189,
+      "mentions": [
+        {
+          "text": {
+            "content": "data analytics",
+            "beginOffset": 36
+          },
+          "type": "COMMON",
+          "sentiment": {
+            "magnitude": 0.4,
+            "score": 0.4
+          }
+        }
+      ],
+      "sentiment": {
+        "magnitude": 0.4,
+        "score": 0.4
+      }
+    },
+    {
+      "name": "data engineering",
+      "type": "OTHER",
+      "metadata": {},
+      "salience": 0.18361077,
+      "mentions": [
+        {
+          "text": {
+            "content": "data engineering",
+            "beginOffset": 15
+          },
+          "type": "COMMON",
+          "sentiment": {
+            "magnitude": 0,
+            "score": 0
+          }
+        }
+      ],
+      "sentiment": {
+        "magnitude": 0,
+        "score": 0
+      }
+    },
+    {
+      "name": "Keboola",
+      "type": "PERSON",
+      "metadata": {},
+      "salience": 0.1373092,
+      "mentions": [
+        {
+          "text": {
+            "content": "Keboola",
+            "beginOffset": 0
+          },
+          "type": "PROPER",
+          "sentiment": {
+            "magnitude": 0.1,
+            "score": 0.1
+          }
+        }
+      ],
+      "sentiment": {
+        "magnitude": 0.1,
+        "score": 0.1
+      }
+    },
+    {
+      "name": "anyone",
+      "type": "PERSON",
+      "metadata": {},
+      "salience": 0.06476169,
+      "mentions": [
+        {
+          "text": {
+            "content": "anyone",
+            "beginOffset": 88
+          },
+          "type": "COMMON",
+          "sentiment": {
+            "magnitude": 0.2,
+            "score": 0.2
+          }
+        }
+      ],
+      "sentiment": {
+        "magnitude": 0.2,
+        "score": 0.2
+      }
+    },
+    {
+      "name": "platform",
+      "type": "OTHER",
+      "metadata": {},
+      "salience": 0.029939458,
+      "mentions": [
+        {
+          "text": {
+            "content": "platform",
+            "beginOffset": 208
+          },
+          "type": "COMMON",
+          "sentiment": {
+            "magnitude": 0.1,
+            "score": 0.1
+          }
+        }
+      ],
+      "sentiment": {
+        "magnitude": 0.1,
+        "score": 0.1
+      }
+    },
+    {
+      "name": "data hub",
+      "type": "ORGANIZATION",
+      "metadata": {},
+      "salience": 0.028680414,
+      "mentions": [
+        {
+          "text": {
+            "content": "data hub",
+            "beginOffset": 138
+          },
+          "type": "COMMON",
+          "sentiment": {
+            "magnitude": 0.2,
+            "score": 0.2
+          }
+        }
+      ],
+      "sentiment": {
+        "magnitude": 0.2,
+        "score": 0.2
+      }
+    },
+    {
+      "name": "user provisioning",
+      "type": "OTHER",
+      "metadata": {},
+      "salience": 0.028680414,
+      "mentions": [
+        {
+          "text": {
+            "content": "user provisioning",
+            "beginOffset": 148
+          },
+          "type": "COMMON",
+          "sentiment": {
+            "magnitude": 0.3,
+            "score": 0.3
+          }
+        }
+      ],
+      "sentiment": {
+        "magnitude": 0.3,
+        "score": 0.3
+      }
+    },
+    {
+      "name": "infrastructure",
+      "type": "OTHER",
+      "metadata": {},
+      "salience": 0.028334498,
+      "mentions": [
+        {
+          "text": {
+            "content": "infrastructure",
+            "beginOffset": 122
+          },
+          "type": "COMMON",
+          "sentiment": {
+            "magnitude": 0.6,
+            "score": 0.6
+          }
+        }
+      ],
+      "sentiment": {
+        "magnitude": 0.6,
+        "score": 0.6
+      }
+    },
+    {
+      "name": "process automation",
+      "type": "OTHER",
+      "metadata": {},
+      "salience": 0.026343675,
+      "mentions": [
+        {
+          "text": {
+            "content": "process automation",
+            "beginOffset": 167
+          },
+          "type": "COMMON",
+          "sentiment": {
+            "magnitude": 0.3,
+            "score": 0.3
+          }
+        }
+      ],
+      "sentiment": {
+        "magnitude": 0.3,
+        "score": 0.3
+      }
+    },
+    {
+      "name": "all",
+      "type": "PERSON",
+      "metadata": {},
+      "salience": 0.026343675,
+      "mentions": [
+        {
+          "text": {
+            "content": "all",
+            "beginOffset": 188
+          },
+          "type": "COMMON",
+          "sentiment": {
+            "magnitude": 0.1,
+            "score": 0.1
+          }
+        }
+      ],
+      "sentiment": {
+        "magnitude": 0.1,
+        "score": 0.1
+      }
+    },
+    {
+      "name": "Křižíkova 488",
+      "type": "OTHER",
+      "metadata": {},
+      "salience": 0.008238481,
+      "mentions": [
+        {
+          "text": {
+            "content": "Křižíkova 488",
+            "beginOffset": 261
+          },
+          "type": "PROPER",
+          "sentiment": {
+            "magnitude": 0,
+            "score": 0
+          }
+        }
+      ],
+      "sentiment": {
+        "magnitude": 0,
+        "score": 0
+      }
+    },
+    {
+      "name": "+420 739 632 821",
+      "type": "PHONE_NUMBER",
+      "metadata": {
+        "number": "739632821"
+      },
+      "salience": 0,
+      "mentions": [
+        {
+          "text": {
+            "content": "+420 739 632 821",
+            "beginOffset": 229
+          },
+          "type": "TYPE_UNKNOWN",
+          "sentiment": {
+            "magnitude": 0,
+            "score": 0
+          }
+        }
+      ],
+      "sentiment": {
+        "magnitude": 0,
+        "score": 0
+      }
+    },
+    {
+      "name": "Křižíkova 488/115 Prague 8 186 00",
+      "type": "ADDRESS",
+      "metadata": {
+        "locality": "Praha",
+        "broad_region": "Hlavní město Praha",
+        "street_name": "Křižíkova",
+        "narrow_region": "Hlavní město Praha",
+        "street_number": "488/115",
+        "country": "CZ",
+        "postal_code": "186 00",
+        "sublocality": "Praha 8"
+      },
+      "salience": 0,
+      "mentions": [
+        {
+          "text": {
+            "content": "Křižíkova 488/115 Prague 8 186 00",
+            "beginOffset": 261
+          },
+          "type": "TYPE_UNKNOWN",
+          "sentiment": {
+            "magnitude": 0,
+            "score": 0
+          }
+        }
+      ],
+      "sentiment": {
+        "magnitude": 0,
+        "score": 0
+      }
+    },
+    {
+      "name": "+420 739 632 821",
+      "type": "NUMBER",
+      "metadata": {
+        "value": "420739632821"
+      },
+      "salience": 0,
+      "mentions": [
+        {
+          "text": {
+            "content": "+420 739 632 821",
+            "beginOffset": 229
+          },
+          "type": "TYPE_UNKNOWN",
+          "sentiment": {
+            "magnitude": 0,
+            "score": 0
+          }
+        }
+      ],
+      "sentiment": {
+        "magnitude": 0,
+        "score": 0
+      }
+    },
+    {
+      "name": "488/115",
+      "type": "NUMBER",
+      "metadata": {
+        "value": "4.243478"
+      },
+      "salience": 0,
+      "mentions": [
+        {
+          "text": {
+            "content": "488/115",
+            "beginOffset": 274
+          },
+          "type": "TYPE_UNKNOWN",
+          "sentiment": {
+            "magnitude": 0,
+            "score": 0
+          }
+        }
+      ],
+      "sentiment": {
+        "magnitude": 0,
+        "score": 0
+      }
+    },
+    {
+      "name": "00",
+      "type": "NUMBER",
+      "metadata": {
+        "value": "0"
+      },
+      "salience": 0,
+      "mentions": [
+        {
+          "text": {
+            "content": "00",
+            "beginOffset": 295
+          },
+          "type": "TYPE_UNKNOWN",
+          "sentiment": {
+            "magnitude": 0,
+            "score": 0
+          }
+        }
+      ],
+      "sentiment": {
+        "magnitude": 0,
+        "score": 0
+      }
+    },
+    {
+      "name": "8",
+      "type": "NUMBER",
+      "metadata": {
+        "value": "8"
+      },
+      "salience": 0,
+      "mentions": [
+        {
+          "text": {
+            "content": "8",
+            "beginOffset": 289
+          },
+          "type": "TYPE_UNKNOWN",
+          "sentiment": {
+            "magnitude": 0,
+            "score": 0
+          }
+        }
+      ],
+      "sentiment": {
+        "magnitude": 0,
+        "score": 0
+      }
+    },
+    {
+      "name": "One",
+      "type": "NUMBER",
+      "metadata": {
+        "value": "1"
+      },
+      "salience": 0,
+      "mentions": [
+        {
+          "text": {
+            "content": "One",
+            "beginOffset": 104
+          },
+          "type": "TYPE_UNKNOWN",
+          "sentiment": {
+            "magnitude": 0,
+            "score": 0
+          }
+        }
+      ],
+      "sentiment": {
+        "magnitude": 0,
+        "score": 0
+      }
+    },
+    {
+      "name": "one",
+      "type": "NUMBER",
+      "metadata": {
+        "value": "1"
+      },
+      "salience": 0,
+      "mentions": [
+        {
+          "text": {
+            "content": "one",
+            "beginOffset": 204
+          },
+          "type": "TYPE_UNKNOWN",
+          "sentiment": {
+            "magnitude": 0,
+            "score": 0
+          }
+        }
+      ],
+      "sentiment": {
+        "magnitude": 0,
+        "score": 0
+      }
+    },
+    {
+      "name": "one",
+      "type": "NUMBER",
+      "metadata": {
+        "value": "1"
+      },
+      "salience": 0,
+      "mentions": [
+        {
+          "text": {
+            "content": "one",
+            "beginOffset": 63
+          },
+          "type": "TYPE_UNKNOWN",
+          "sentiment": {
+            "magnitude": 0,
+            "score": 0
+          }
+        }
+      ],
+      "sentiment": {
+        "magnitude": 0,
+        "score": 0
+      }
+    },
+    {
+      "name": "186",
+      "type": "NUMBER",
+      "metadata": {
+        "value": "186"
+      },
+      "salience": 0,
+      "mentions": [
+        {
+          "text": {
+            "content": "186",
+            "beginOffset": 291
+          },
+          "type": "TYPE_UNKNOWN",
+          "sentiment": {
+            "magnitude": 0,
+            "score": 0
+          }
+        }
+      ],
+      "sentiment": {
+        "magnitude": 0,
+        "score": 0
+      }
+    }
+  ],
+  "documentSentiment": {
+    "magnitude": 1.1,
+    "score": 0.3
+  },
+  "language": "en",
+  "categories": [
+    {
+      "name": "/Computers & Electronics/Enterprise Technology/Data Management",
+      "confidence": 0.8
+    },
+    {
+      "name": "/Business & Industrial",
+      "confidence": 0.79
+    },
+    {
+      "name": "/Internet & Telecom/Web Services",
+      "confidence": 0.64
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+"sentenceId","documentId","index","textContent","textOffset","sentimentMagnitude","sentimentScore"
+"02a1b8b9ee6a8cba3117da7b7d4b7a29","VERIFY_ALL_METHODS_SUCCESS","0","Pavol Demitra was a Slovak pebrofessional ice hockey player.","0","0","0"
+"ef1a0130ee591131103c96d5654808c6","VERIFY_ALL_METHODS_SUCCESS","1","He played nineteen seasons of professional hockey, for teams in the Czechoslovak First Ice Hockey League, National Hockey League, Slovak Extraliga, and Kontinental Hockey League.","61","0.8","0.8"
+"dc9aa8a565c58b6c4a7545259b1f0e71","VERIFY_ALL_METHODS_SUCCESS","2","Pavol Demitra scored 211 goals in NHL in his carrer.","241","0","0"
+"33e16b63d1a5c3337bf521c41722bf45","VERIFY_ALL_METHODS_SUCCESS","3","He died in 2011 in a plane crash near Jaroslavl.","294","0.3","-0.3"
+"d51d901cbff2b3d9401cd37ff6190d83","VERIFY_ALL_METHODS_SUCCESS","4","Pavol Demitra has died aged 39.","343","0","0"
+"9e2435be82dabfb4206836a8f17a3615","VERIFY_ALL_METHODS_SUCCESS","5","The hocker player was considered one of the best in the country.","375","0.7","0.7"
+"50c5d54107f8ff62ca075af37bfb8a90","AUTO_DETECT_LANGUAGE_SUCCESS","0","Pavol Demitra was a hockey player.","0","0","0"

@@ -1,1 +1,1 @@
-Testing functional sample extractor for purposes of the python component template. 
+Google Cloud Natural Language API allows to extract text features such as sentiment, entities and mentions, sentences, syntax and category classification, using pre-trained machine learning models.

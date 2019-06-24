@@ -11,13 +11,12 @@ BASE_URL = 'https://language.googleapis.com/v1/documents:annotateText'
 
 class googleNLPClient(HttpClientBase):
 
-    def __init__(self, token, input_type):
+    def __init__(self, token):
 
         _def_params = {'key': token}
         _def_header = {"Content-Type": "application/json",
                        "Accept": "application/json"}
         self.token = token
-        self.input_type = input_type
 
         HttpClientBase.__init__(self, base_url=BASE_URL, max_retries=10,
                                 backoff_factor=0.3, default_params=_def_params,
@@ -87,13 +86,13 @@ class googleNLPClient(HttpClientBase):
             logging.warn("Could not obtain languages.")
             logging.warn(e)
 
-    def _create_body(self, content, language, features, input_type='PLAIN_TEXT'):
+    def _create_body(self, content, language, features, inputType='PLAIN_TEXT'):
 
         if language is None:
 
             language = ''
 
-        _template = {"document": {"type": input_type,
+        _template = {"document": {"type": inputType,
                                   "content": content,
                                   "language": language},
                      "encodingType": "UTF8",
@@ -104,9 +103,9 @@ class googleNLPClient(HttpClientBase):
 
         return json.dumps(_template)
 
-    def analyze_text(self, content, language, features, input_type='PLAIN_TEXT'):
+    def analyze_text(self, content, language, features, inputType='PLAIN_TEXT'):
 
-        _body = self._create_body(content, language, features, input_type)
+        _body = self._create_body(content, language, features, inputType)
 
         try:
 
@@ -119,8 +118,8 @@ class googleNLPClient(HttpClientBase):
             logging.error(
                 "There was a problem calling documents:annotateText endpoint. Retry 10x failed. Reason:")
             logging.error(e)
-            logging.error("Following features were used:")
-            logging.error(str(features))
+            logging.debug("Following features were used:")
+            logging.debug(str(features))
             logging.error(
                 "The issue might be caused by daily limits reached. Please, raise the limits if necessary.")
 

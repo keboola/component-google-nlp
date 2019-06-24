@@ -1,0 +1,8 @@
+"documentId","category","severity","message"
+"FAIL_CATEGORY_RETRY_SUCCESS","categoryError","WARNING","Invalid text content: too few tokens (words) to process. Retrying without classifyText method."
+"FAIL_LANGUAGE","nlpError","ERROR","The language sk is not supported for syntax analysis."
+"AUTO_DETECT_LANGUAGE_SUCCESS","categoryError","WARNING","No category detected for document AUTO_DETECT_LANGUAGE_SUCCESS."
+"AUTO_DETECT_LANGUAGE_FAIL","nlpError","ERROR","The language sk is not supported for syntax analysis."
+"EMPTY_STRING","emptyDocumentError","WARNING","The document EMPTY_STRING is empty and was skipped."
+"AUTO_DETECT_FAIL_LANGUAGE_FR","nlpError","ERROR","The language fr is not supported for entity_sentiment analysis."
+"FAIL_LANGUAGE_FR","nlpError","ERROR","The language fr is not supported for entity_sentiment analysis."

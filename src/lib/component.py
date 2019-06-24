@@ -2,7 +2,6 @@ import csv
 from hashlib import md5
 import json
 import logging
-# import os
 import sys
 from lib.client import googleNLPClient
 from lib.result import resultWriter
@@ -38,8 +37,7 @@ class Component(KBCEnvHandler):
         self._create_request_features()
         self._identify_sentiment()
 
-        self.client = googleNLPClient(
-            token=self.paramToken, input_type=self.paramInputType)
+        self.client = googleNLPClient(token=self.paramToken)
         self.writer = resultWriter(
             methodList=self.paramAnalysisType, dataPath=self.tables_out_path)
 
@@ -85,7 +83,7 @@ class Component(KBCEnvHandler):
         if len(_input_tables) == 0:
 
             logging.error("No input table was provided. Please provide an input table, with mandatory columns \"id\"," +
-                          " \"text\" and optional column \"source\". See documentation for more information.")
+                          " \"text\" and optional column \"sourceLanguage\". See documentation for more information.")
 
             sys.exit(1)
 
@@ -139,13 +137,17 @@ class Component(KBCEnvHandler):
 
         documentId = documentDict['id']
         documentText = documentDict['text']
-        documentLanguage = documentDict.get('source')
+        documentLanguage = documentDict.get('sourceLanguage')
+        skipCategories = False
 
         if documentText.strip() == '':
 
             _message = "The document %s is empty and was skipped." % documentId
 
+            logging.warn(_message)
+
             self.writer.writerErrors.writerow({'documentId': documentId,
+                                               'category': 'emptyDocumentError',
                                                'severity': 'WARNING',
                                                'message': _message})
 
@@ -155,42 +157,82 @@ class Component(KBCEnvHandler):
         if retry is False:
 
             _features['classifyText'] = False
+            skipCategories = True
 
         _nlpResponse = self.client.analyze_text(content=documentText, features=_features,
-                                                language=documentLanguage, input_type=self.paramInputType)
+                                                language=documentLanguage, inputType=self.paramInputType)
 
         _sc = _nlpResponse.status_code
         _js = _nlpResponse.json()
 
         if _sc == 200:
 
-            self.split_and_write_data(documentId, _js)
+            self.split_and_write_data(documentId, _js, skipCategories)
             # write results
 
         elif _sc == 400:
 
             _message = _js['error']['message']
 
-            if (retry is True and len(self.paramAnalysisType) > 1
-                and 'classifyText' in self.paramAnalysisType
-                    and 'Invalid text content: too few tokens' in _message):
+            if (retry is True and 'Invalid text content: too few tokens' in _message
+                    and 'classifyText' in self.paramAnalysisType):
 
                 logging.warn(
                     "Could not use method classifyText for document %s." % documentId)
-                logging.info(
-                    "Retrying request withou classifyText method.")
-                self.writer.writerErrors.writerow({'documentId': documentId,
-                                                   'severity': 'WARNING',
-                                                   'message': _message})
 
-                self.process_document(documentDict, retry=False)
-                logging.debug("Document %s retry #1." % documentId)
+                if len(self.paramAnalysisType) > 1:
+
+                    _additionalMessage = 'Retrying without classifyText method.'
+                    _message = ' '.join([_message, _additionalMessage])
+
+                    self.writer.writerErrors.writerow({'documentId': documentId,
+                                                       'category': 'categoryError',
+                                                       'severity': 'WARNING',
+                                                       'message': _message})
+
+                    logging.info(
+                        "Retrying request for document %s without classifyText method." % documentId)
+
+                    self.process_document(documentDict, retry=False)
+
+                    return
+
+                elif len(self.paramAnalysisType) == 1:
+
+                    '''
+
+                    self.writer.writerDocuments.writerow({'documentId': documentId,
+                                                          'language': documentLanguage,
+                                                          'sentimentMagnitude': '',
+                                                          'sentimentScore': ''})
+
+                    '''
+
+                    _additionalMessage = 'Request could not be retried because no other method was specified.'
+                    _message = ' '.join([_message, _additionalMessage])
+
+                    logging.warn(_additionalMessage)
+
+                    self.writer.writerErrors.writerow({'documentId': documentId,
+                                                       'category': 'categoryError',
+                                                       'severity': 'ERROR',
+                                                       'message': _message})
+
+                    return
 
             else:
 
+                _additionalMessage = "Document %s could not be processed. Received:" % documentId
+                _logMessage = ' '.join([_additionalMessage, _message])
+
+                logging.warn(_logMessage)
+
                 self.writer.writerErrors.writerow({'documentId': documentId,
+                                                   'category': 'nlpError',
                                                    'severity': 'ERROR',
                                                    'message': _message})
+
+                return
 
     @staticmethod
     def _hash_string(hashList, delim='|'):
@@ -223,7 +265,7 @@ class Component(KBCEnvHandler):
 
         nlpSentences = nlpResult['sentences']
 
-        idx = 0
+        idx = -1
 
         for sentence in nlpSentences:
 
@@ -277,18 +319,14 @@ class Component(KBCEnvHandler):
 
         else:
 
-            categoryName = ''
-            confidence = ''
+            _message = "No category detected for document %s." % documentId
 
-            categoryDocumentId = self._hash_string([documentId,
-                                                    categoryName])
+            logging.warn(_message)
 
-            _writerRowCategories = {'categoryDocumentId': categoryDocumentId,
-                                    'documentId': documentId,
-                                    'categoryName': categoryName,
-                                    'confidence': confidence}
-
-            self.writer.writerCategories.writerow(_writerRowCategories)
+            self.writer.writerErrors.writerow({'documentId': documentId,
+                                               'category': 'categoryError',
+                                               'severity': 'WARNING',
+                                               'message': _message})
 
     def write_entities(self, documentId, nlpResult):
 
@@ -308,7 +346,8 @@ class Component(KBCEnvHandler):
             name = entity['name']
             entType = entity['type']
             salience = entity['salience']
-            metadata = json.dumps(entity['metadata']) if entity['metadata'] != {} else ''
+            metadata = json.dumps(
+                entity['metadata']) if entity['metadata'] != {} else ''
 
             entityId = self._hash_string([documentId, name])
 
@@ -369,7 +408,7 @@ class Component(KBCEnvHandler):
 
         nlpTokens = nlpResult['tokens']
 
-        idx = 0
+        idx = -1
 
         for token in nlpTokens:
 
@@ -388,18 +427,23 @@ class Component(KBCEnvHandler):
             _writerRowTokens = {**{'tokenId': tokenId,
                                    'documentId': documentId,
                                    'textContent': textContent,
-                                   'textOffset': textOffset},
+                                   'textOffset': textOffset,
+                                   'index': idx},
                                 **_flatToken}
 
             self.writer.writerTokens.writerow(_writerRowTokens)
 
-    def split_and_write_data(self, documentId, nlpResult):
+    def split_and_write_data(self, documentId, nlpResult, skipCategories=False):
 
         for table in self.writer.resultTableNames:
 
             # Mentions are automatically created with entities and are its child
             # Errors are logged separately
             if table in ['mentions', 'errors']:
+
+                continue
+
+            elif skipCategories is True:
 
                 continue
 

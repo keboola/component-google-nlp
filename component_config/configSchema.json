@@ -18,7 +18,8 @@
     },
     "analysis_type": {
       "type": "array",
-      "title": "Analysis type",
+      "title": "Analysis Type",
+      "description": "Choose the methods for NLP analysis.</br>Refer to <a href='https://bitbucket.org/kds_consulting_team/kds-team.ex-google-nlp/src/master/component_config/sample-config/'>component documentation</a> for more information.",
       "items": {
         "type": "string",
         "enum": [
@@ -44,7 +45,8 @@
     },
     "input_type": {
       "type": "string",
-      "title": "Input type",
+      "title": "Input Type",
+      "description": "Choose, whether text input is a plain text or html.",
       "enum": [
         "PLAIN_TEXT",
         "HTML"

@@ -26,7 +26,7 @@ FIELDS_TOKENS = ['tokenId', 'documentId', 'textContent', 'textOffset', 'lemma', 
                  'partOfSpeech_reciprocity', 'partOfSpeech_tense', 'partOfSpeech_voice',
                  'dependencyEdge_headTokenIndex', 'dependencyEdge_label']
 
-FIELDS_ERRORS = ['documentId', 'severity', 'message']
+FIELDS_ERRORS = ['documentId', 'category', 'severity', 'message']
 
 
 class resultWriter:

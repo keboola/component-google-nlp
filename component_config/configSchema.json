@@ -13,13 +13,13 @@
       "format": "password",
       "minLength": 4,
       "default": "",
-      "description": "For API key, please visit <a href='https://console.cloud.google.com/apis/credentials'>Google Cloud Console</a><ol><li>Create a new API key by clicking: Create credentials -> API Keys</li><li>Use your existing API key and add Natural Language API to API restrictions</li></ol><br>Please refer to GCP <a href='https://cloud.google.com/natural-language/pricing'>pricing guide</a> for detailed information about the costs of API requests.",
+      "description": "For API key, please visit <a href='https://console.cloud.google.com/apis/credentials'>Google Cloud Console</a><ol><li>Create a new API key by clicking: Create credentials -> API Keys</li><li>Use your existing API key and add Natural Language API to API restrictions</li></ol><br>Please, refer to GCP <a href='https://cloud.google.com/natural-language/pricing'>pricing guide</a> for detailed information about the costs of API requests.",
       "propertyOrder": 100
     },
     "analysis_type": {
       "type": "array",
       "title": "Analysis Type",
-      "description": "Choose the methods for NLP analysis.</br>Refer to <a href='https://bitbucket.org/kds_consulting_team/kds-team.ex-google-nlp/src/master/component_config/sample-config/'>component documentation</a> for more information.",
+      "description": "Choose the methods for NLP analysis.</br>Refer to <a href='https://bitbucket.org/kds_consulting_team/kds-team.ex-google-nlp/src/master/README.md'>component documentation</a> for more information.",
       "items": {
         "type": "string",
         "enum": [

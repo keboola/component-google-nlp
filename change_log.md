@@ -1,3 +1,7 @@
+**0.3.2**
+Fixed wrong links in documentation.
+Added row logging after 500 requests.
+
 **0.3.1**
 Removed feature, which would write documents to `documents` table event when error occured. Fine-tuned category classification and added skip mechanism for category to prevent duplicate messages in `errors` table.
 Added error category to `errors` to be able to better identify source of errors.

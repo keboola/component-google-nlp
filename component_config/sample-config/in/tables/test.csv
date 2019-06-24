@@ -1,7 +1,7 @@
 "id","text","sourceLanguage"
 "VERIFY_ALL_METHODS_SUCCESS","Pavol Demitra was a Slovak pebrofessional ice hockey player. He played nineteen seasons of professional hockey, for teams in the Czechoslovak First Ice Hockey League, National Hockey League, Slovak Extraliga, and Kontinental Hockey League. Pavol Demitra scored 211 goals in NHL in his carrer. He died in 2011 in a plane crash near Jaroslavl. Pavol Demitra has died aged 39. The hocker player was considered one of the best in the country.","en"
 "FAIL_CATEGORY_RETRY_SUCCESS","Pavol Demitra was a hockey player.","en"
-"FAIL_LANGUAGE","Pavol Demitra was a hockey player.","sk"
+"FAIL_LANGUAGE","Pavol Demitra bol slovensky hokejovy hrac.","sk"
 "AUTO_DETECT_LANGUAGE_SUCCESS","Pavol Demitra was a hockey player.",""
 "AUTO_DETECT_LANGUAGE_FAIL","Pavol Demitra bol slovensky hokejovy hrac.",""
 "EMPTY_STRING","","en"

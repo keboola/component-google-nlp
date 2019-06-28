@@ -1,6 +1,6 @@
 # Google NLP
 
-**Full documentation available [here](https://bitbucket.org/kds_consulting_team/kds-team.ex-google-nlp/src/master/README.md)!**
+Full documentation is available [here](https://bitbucket.org/kds_consulting_team/kds-team.ex-google-nlp/src/master/README.md)!
 
 ## Overview
 
@@ -48,6 +48,7 @@ For each entity, a list of mentions is returned. The mentions list is always of 
 
 ###### reference: [analyzeEntities](https://cloud.google.com/natural-language/docs/reference/rest/v1/documents/analyzeEntities), [entity](https://cloud.google.com/natural-language/docs/reference/rest/v1/Entity)
 
+---
 
 #### Entity sentiment analysis (`analyzeEntitySentiment`)
 
@@ -55,17 +56,23 @@ The method returns the same analysis type as `analyzeEntities` method but adds s
 
 ###### reference: [analyzeEntitySentiment](https://cloud.google.com/natural-language/docs/reference/rest/v1/documents/analyzeEntitySentiment), [entity](https://cloud.google.com/natural-language/docs/reference/rest/v1/Entity)
 
+---
+
 #### Sentiment analysis (`analyzeSentiment`)
 
 The `analyzeSentiment` method inspects the document for [emotional opinion present within the text](https://cloud.google.com/natural-language/docs/basics/#sentiment_analysis) and magnitude of the opinion. The result is the overall attitude of the document (positive, neutral or negative) and of each sentence present within the document. Score and magnitude of the document and sentences can be interpreted according to [this guide](https://cloud.google.com/natural-language/docs/basics/#interpreting_sentiment_analysis_values).
 
 ###### reference: [analyzeSentiment](https://cloud.google.com/natural-language/docs/reference/rest/v1/documents/analyzeSentiment), [sentiment](https://cloud.google.com/natural-language/docs/reference/rest/v1/Sentiment)
 
+---
+
 #### Syntactic analysis (`analyzeSyntax`)
 
 The syntactic analysis breaks up the documents into [sentences and extracts tokens (words)](https://cloud.google.com/natural-language/docs/basics/#syntactic_analysis) from the document. For each token, information about lemma, [part of the speech](https://cloud.google.com/natural-language/docs/reference/rest/v1/Token/#PartOfSpeech) and [depencency index](https://cloud.google.com/natural-language/docs/reference/rest/v1/Token/#DependencyEdge) is added using Cloud Natural Language API. For more information about how to interpret the values, refer to [Syntacting analysis](https://cloud.google.com/natural-language/docs/basics/#syntactic_analysis) guide and [Morphology & Dependency Trees](https://cloud.google.com/natural-language/docs/morphology) guide.
 
 ###### reference: [analyzeSyntax](https://cloud.google.com/natural-language/docs/reference/rest/v1/documents/analyzeSyntax), [token](https://cloud.google.com/natural-language/docs/reference/rest/v1/Token)
+
+---
 
 #### Content classification (`classifyText`)
 

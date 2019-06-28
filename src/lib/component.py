@@ -462,8 +462,8 @@ class Component(KBCEnvHandler):
 
             for row in _reader:
 
-                if _reader.line_num % 500 == 0:
-
-                    logging.info("Made %s requests so far." % _reader.line_num)
-
                 self.process_document(documentDict=row, retry=True)
+
+                if _reader.line_num % 250 == 0:
+
+                    logging.info("Made %s call to API so far." % _reader.line_num)

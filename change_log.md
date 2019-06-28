@@ -1,3 +1,7 @@
+**0.3.3**
+Pushed the component to ECR, tested out.
+Small changes to documentation.
+
 **0.3.2**
 Fixed wrong links in documentation.
 Added row logging after 500 requests.

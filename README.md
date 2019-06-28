@@ -46,6 +46,7 @@ For each entity, a list of mentions is returned. The mentions list is always of 
 
 ###### reference: [analyzeEntities](https://cloud.google.com/natural-language/docs/reference/rest/v1/documents/analyzeEntities), [entity](https://cloud.google.com/natural-language/docs/reference/rest/v1/Entity)
 
+---
 
 #### Entity sentiment analysis (`analyzeEntitySentiment`)
 
@@ -53,17 +54,23 @@ The method returns the same analysis type as `analyzeEntities` method but adds s
 
 ###### reference: [analyzeEntitySentiment](https://cloud.google.com/natural-language/docs/reference/rest/v1/documents/analyzeEntitySentiment), [entity](https://cloud.google.com/natural-language/docs/reference/rest/v1/Entity)
 
+---
+
 #### Sentiment analysis (`analyzeSentiment`)
 
 The `analyzeSentiment` method inspects the document for [emotional opinion present within the text](https://cloud.google.com/natural-language/docs/basics/#sentiment_analysis) and magnitude of the opinion. The result is the overall attitude of the document (positive, neutral or negative) and of each sentence present within the document. Score and magnitude of the document and sentences can be interpreted according to [this guide](https://cloud.google.com/natural-language/docs/basics/#interpreting_sentiment_analysis_values).
 
 ###### reference: [analyzeSentiment](https://cloud.google.com/natural-language/docs/reference/rest/v1/documents/analyzeSentiment), [sentiment](https://cloud.google.com/natural-language/docs/reference/rest/v1/Sentiment)
 
+---
+
 #### Syntactic analysis (`analyzeSyntax`)
 
 The syntactic analysis breaks up the documents into [sentences and extracts tokens (words)](https://cloud.google.com/natural-language/docs/basics/#syntactic_analysis) from the document. For each token, information about lemma, [part of the speech](https://cloud.google.com/natural-language/docs/reference/rest/v1/Token/#PartOfSpeech) and [depencency index](https://cloud.google.com/natural-language/docs/reference/rest/v1/Token/#DependencyEdge) is added using Cloud Natural Language API. For more information about how to interpret the values, refer to [Syntacting analysis](https://cloud.google.com/natural-language/docs/basics/#syntactic_analysis) guide and [Morphology & Dependency Trees](https://cloud.google.com/natural-language/docs/morphology) guide.
 
 ###### reference: [analyzeSyntax](https://cloud.google.com/natural-language/docs/reference/rest/v1/documents/analyzeSyntax), [token](https://cloud.google.com/natural-language/docs/reference/rest/v1/Token)
+
+---
 
 #### Content classification (`classifyText`)
 
@@ -72,6 +79,8 @@ The `classifyText` method analyzes the document and returns a list of [categorie
 For successful content classification, the document needs to be of certain length (~ 20 words) and must not be too abstract. If the two conditions are not met, no categories are returned.
 
 ###### reference: [classifyText](https://cloud.google.com/natural-language/docs/reference/rest/v1/documents/classifyText), [ClassificationCategory](https://cloud.google.com/natural-language/docs/reference/rest/v1/ClassificationCategory)
+
+---
 
 ## Input and Output
 
@@ -238,7 +247,7 @@ where `category.name` is the name of the identified category (API output). Each 
 
 #### Column descriptions
 
-Due to a high number of tables present in the dataset, the column descriptions will not be a part of this documentation. However, a great in-depth description is available in [Natual Language API Basics](https://cloud.google.com/natural-language/docs/basics) guide.
+Due to high number of columns and tables returned by the component, the column descriptions will not be a part of this documentation. However, a great in-depth description is available in [Natual Language API Basics](https://cloud.google.com/natural-language/docs/basics) guide.
 
 ## Development
 

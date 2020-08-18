@@ -20,7 +20,7 @@ class googleNLPClient(HttpClientBase):
 
         HttpClientBase.__init__(self, base_url=BASE_URL, max_retries=10,
                                 backoff_factor=0.3, default_params=_def_params,
-                                status_forcelist=(403, 500, 502), default_http_header=_def_header)
+                                status_forcelist=(500, 502), default_http_header=_def_header)
 
         self._check_token()
 
@@ -77,7 +77,7 @@ class googleNLPClient(HttpClientBase):
 
                 _table = table_contents[t].select('tbody > tr > td > code')
 
-                supported_languages[_name_mapped] = [l.text for l in _table]
+                supported_languages[_name_mapped] = [lang.text for lang in _table]
 
             return supported_languages
 

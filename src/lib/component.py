@@ -3,7 +3,7 @@ from hashlib import md5
 import json
 import logging
 import sys
-from lib.client import googleNLPClient
+from lib.client import googleNLPClient, GoogleNLPClientException
 from lib.result import resultWriter
 from kbc.env_handler import KBCEnvHandler
 
@@ -462,7 +462,10 @@ class Component(KBCEnvHandler):
 
             for row in _reader:
 
-                self.process_document(documentDict=row, retry=True)
+                try:
+                    self.process_document(documentDict=row, retry=True)
+                except GoogleNLPClientException as e:
+                    raise e
 
                 if _reader.line_num % 250 == 0:
 

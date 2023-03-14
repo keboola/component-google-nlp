@@ -9,6 +9,10 @@ from kbc.client_base import HttpClientBase
 BASE_URL = 'https://language.googleapis.com/v1/documents:annotateText'
 
 
+class GoogleNLPClientException(Exception):
+    pass
+
+
 class googleNLPClient(HttpClientBase):
 
     def __init__(self, token):
@@ -114,13 +118,9 @@ class googleNLPClient(HttpClientBase):
             return _rsp
 
         except requests.exceptions.RetryError as e:
+            raise GoogleNLPClientException(f"There was a problem calling documents:annotateText endpoint."
+                                           f" Retry 10x failed. Reason: {e} "
+                                           f"Following features were used: {str(features)} "
+                                           f"The issue might be caused by daily limits reached. "
+                                           f"Please, raise the limits if necessary.") from e
 
-            logging.error(
-                "There was a problem calling documents:annotateText endpoint. Retry 10x failed. Reason:")
-            logging.error(e)
-            logging.debug("Following features were used:")
-            logging.debug(str(features))
-            logging.error(
-                "The issue might be caused by daily limits reached. Please, raise the limits if necessary.")
-
-            sys.exit(2)

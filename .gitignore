@@ -1,10 +1,12 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-
-# VSCode folders and files
+.idea
 .vscode
 .DS_Store
+/example/.project
+/example/.pydevproject
 
 # kbc datafolder
-data/
+/data
+/venv

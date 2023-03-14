@@ -123,4 +123,3 @@ class googleNLPClient(HttpClientBase):
                                            f"Following features were used: {str(features)} "
                                            f"The issue might be caused by daily limits reached. "
                                            f"Please, raise the limits if necessary.") from e
-

@@ -456,9 +456,13 @@ class Component(KBCEnvHandler):
 
         _path = self.input_table['full_path']
 
+        logging.debug(f"Processing data from table {self.input_table['destination']}")
+
         with open(_path) as fileInput:
 
             _reader = csv.DictReader(fileInput)
+
+            logging.debug(f"Defined columns: {self.input_table['columns']}, found columns: {_reader.fieldnames}")
 
             for row in _reader:
 

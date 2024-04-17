@@ -1,4 +1,5 @@
 from bs4 import BeautifulSoup
+import json
 import logging
 import requests
 import sys
@@ -24,7 +25,7 @@ class GoogleNLPClient(HttpClient):
                          backoff_factor=0.3, default_params=_def_params,
                          status_forcelist=(500, 502), default_http_header=_def_header)
 
-        # self._check_token()
+        self._check_token()
 
     def _check_token(self):
 
@@ -82,7 +83,7 @@ class GoogleNLPClient(HttpClient):
             logging.warning("Could not obtain languages.")
             logging.warning(e)
 
-    def _create_body(self, content, language, features, inputType='PLAIN_TEXT') -> dict:
+    def _create_body(self, content, language, features, inputType='PLAIN_TEXT') -> str:
 
         if language is None:
             language = ''
@@ -95,7 +96,7 @@ class GoogleNLPClient(HttpClient):
 
         logging.debug(f"Body template: {_template}")
 
-        return _template
+        return json.dumps(_template)
 
     def analyze_text(self, content, language, features, inputType='PLAIN_TEXT'):
 

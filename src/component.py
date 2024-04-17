@@ -3,9 +3,10 @@ from hashlib import md5
 import json
 import logging
 import sys
-from lib.client import googleNLPClient, GoogleNLPClientException
-from lib.result import resultWriter
-from kbc.env_handler import KBCEnvHandler
+from client import googleNLPClient, GoogleNLPClientException
+from result import resultWriter
+from keboola.component.base import ComponentBase
+from keboola.component.exceptions import UserException
 
 
 API_KEY = '#API_key'
@@ -19,17 +20,17 @@ SUPPORTED_INPUT = ['PLAIN_TEXT', 'HTML']
 MANDATORY_PARS = [API_KEY, ANALYSIS_TYPE_KEY, INPUT_TYPE_KEY]
 
 
-class Component(KBCEnvHandler):
+class Component(ComponentBase):
 
     def __init__(self):
 
-        KBCEnvHandler.__init__(self, MANDATORY_PARS)
-        self.validate_config(MANDATORY_PARS)
+        super().__init__()
+        self.validate_configuration_parameters(MANDATORY_PARS)
 
         # Parameter fetching
-        self.paramToken = self.cfg_params[API_KEY]
-        self.paramAnalysisType = self.cfg_params[ANALYSIS_TYPE_KEY]
-        self.paramInputType = self.cfg_params[INPUT_TYPE_KEY]
+        self.paramToken = self.configuration.parameters[API_KEY]
+        self.paramAnalysisType = self.configuration.parameters[ANALYSIS_TYPE_KEY]
+        self.paramInputType = self.configuration.parameters[INPUT_TYPE_KEY]
 
         # Check inputs and create necessary variables for making requests
         self._check_input_tables()
@@ -75,7 +76,7 @@ class Component(KBCEnvHandler):
 
     def _check_input_tables(self):
 
-        _input_tables = self.configuration.get_input_tables()
+        _input_tables = self.get_input_tables_definitions()
 
         logging.debug("Input tables:")
         logging.debug(_input_tables)
@@ -90,7 +91,7 @@ class Component(KBCEnvHandler):
         else:
 
             _input = _input_tables[0]
-            _path = _input['full_path']
+            _path = _input.full_path
             _mnfst_path = _path + '.manifest'
 
             with open(_mnfst_path) as _mnfst_file:
@@ -144,7 +145,7 @@ class Component(KBCEnvHandler):
 
             _message = "The document %s is empty and was skipped." % documentId
 
-            logging.warn(_message)
+            logging.warning(_message)
 
             self.writer.writerErrors.writerow({'documentId': documentId,
                                                'category': 'emptyDocumentError',
@@ -177,7 +178,7 @@ class Component(KBCEnvHandler):
             if (retry is True and 'Invalid text content: too few tokens' in _message
                     and 'classifyText' in self.paramAnalysisType):
 
-                logging.warn(
+                logging.warning(
                     "Could not use method classifyText for document %s." % documentId)
 
                 if len(self.paramAnalysisType) > 1:
@@ -211,7 +212,7 @@ class Component(KBCEnvHandler):
                     _additionalMessage = 'Request could not be retried because no other method was specified.'
                     _message = ' '.join([_message, _additionalMessage])
 
-                    logging.warn(_additionalMessage)
+                    logging.warning(_additionalMessage)
 
                     self.writer.writerErrors.writerow({'documentId': documentId,
                                                        'category': 'categoryError',
@@ -225,7 +226,7 @@ class Component(KBCEnvHandler):
                 _additionalMessage = "Document %s could not be processed. Received:" % documentId
                 _logMessage = ' '.join([_additionalMessage, _message])
 
-                logging.warn(_logMessage)
+                logging.warning(_logMessage)
 
                 self.writer.writerErrors.writerow({'documentId': documentId,
                                                    'category': 'nlpError',
@@ -321,7 +322,7 @@ class Component(KBCEnvHandler):
 
             _message = "No category detected for document %s." % documentId
 
-            logging.warn(_message)
+            logging.warning(_message)
 
             self.writer.writerErrors.writerow({'documentId': documentId,
                                                'category': 'categoryError',
@@ -474,3 +475,19 @@ class Component(KBCEnvHandler):
                 if _reader.line_num % 250 == 0:
 
                     logging.info("Made %s call to API so far." % _reader.line_num)
+
+
+"""
+        Main entrypoint
+"""
+if __name__ == "__main__":
+    try:
+        comp = Component()
+        # this triggers the run method by default and is controlled by the configuration.action parameter
+        comp.execute_action()
+    except UserException as exc:
+        logging.exception(exc)
+        exit(1)
+    except Exception as exc:
+        logging.exception(exc)
+        exit(2)

@@ -4,7 +4,7 @@ import logging
 # import os
 import requests
 import sys
-from kbc.client_base import HttpClientBase
+from keboola.http_client import HttpClient
 
 BASE_URL = 'https://language.googleapis.com/v1/documents:annotateText'
 
@@ -13,7 +13,7 @@ class GoogleNLPClientException(Exception):
     pass
 
 
-class googleNLPClient(HttpClientBase):
+class googleNLPClient(HttpClient):
 
     def __init__(self, token):
 
@@ -22,9 +22,9 @@ class googleNLPClient(HttpClientBase):
                        "Accept": "application/json"}
         self.token = token
 
-        HttpClientBase.__init__(self, base_url=BASE_URL, max_retries=10,
-                                backoff_factor=0.3, default_params=_def_params,
-                                status_forcelist=(500, 502), default_http_header=_def_header)
+        super().__init__(base_url=BASE_URL, max_retries=10,
+                         backoff_factor=0.3, default_params=_def_params,
+                         status_forcelist=(500, 502), default_http_header=_def_header)
 
         self._check_token()
 
@@ -68,14 +68,12 @@ class googleNLPClient(HttpClientBase):
         table_contents = soup.findAll('table')
 
         if len(table_contents) != len(table_headers):
-
             logging.info("Skipping obtaining languages due to not matching website inputs.")
             return
 
         supported_languages = {}
         try:
             for t in range(len(table_headers)):
-
                 _name = table_headers[t]['id']
                 _name_mapped = _map.get(_name)
 
@@ -93,7 +91,6 @@ class googleNLPClient(HttpClientBase):
     def _create_body(self, content, language, features, inputType='PLAIN_TEXT'):
 
         if language is None:
-
             language = ''
 
         _template = {"document": {"type": inputType,

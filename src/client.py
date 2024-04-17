@@ -32,7 +32,7 @@ class GoogleNLPClient(HttpClient):
 
         # Will produce a 400 error due to invalid payload.
         # Depending on message, the token can be verified
-        _rsp = self.post_raw(self.base_url, data=_body, is_absolute_path=True)
+        _rsp = self.post_raw(data=_body)
         _sc = _rsp.status_code
         _msg = _rsp.json()['error'].get('message')
 
@@ -99,9 +99,10 @@ class GoogleNLPClient(HttpClient):
     def analyze_text(self, content, language, features, inputType='PLAIN_TEXT'):
 
         _body = self._create_body(content, language, features, inputType)
+        logging.debug(f"Body: {_body}")
 
         try:
-            _rsp = self.post_raw(url=self.base_url, data=_body, is_absolute_path=True)
+            _rsp = self.post_raw(data=_body)
             return _rsp
 
         except requests.exceptions.RetryError as e:

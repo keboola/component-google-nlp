@@ -47,7 +47,6 @@ class Component(ComponentBase):
         _template = {}
 
         for _analysis in self.paramAnalysisType:
-
             _template[_analysis] = True
 
         self.requestFeatures = _template
@@ -60,13 +59,9 @@ class Component(ComponentBase):
         _includedSentiment = []
 
         for key in _mappingSentiment:
-
             if key in self.paramAnalysisType:
-
                 _includedSentiment += _mappingSentiment[key]
-
             else:
-
                 pass
 
         logging.debug("Sentiment is present in the following tables:")
@@ -95,17 +90,12 @@ class Component(ComponentBase):
             _mnfst_path = _path + '.manifest'
 
             with open(_mnfst_path) as _mnfst_file:
-
                 _mnfst = json.load(_mnfst_file)
-
                 _columns = _mnfst['columns']
 
                 if 'id' in _columns and 'text' in _columns:
-
                     pass
-
                 else:
-
                     logging.error("Missing required column \"id\" or \"text\" in table %s." % _input.name)
                     logging.error("Please, make sure all of the required columns are inputted.")
                     sys.exit(1)

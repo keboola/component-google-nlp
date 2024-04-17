@@ -32,20 +32,15 @@ class GoogleNLPClient(HttpClient):
 
         # Will produce a 400 error due to invalid payload.
         # Depending on message, the token can be verified
-        _rsp = self.post_raw(self.base_url, data=_body)
+        _rsp = self.post_raw(self.base_url, data=_body, is_absolute_path=True)
         _sc = _rsp.status_code
         _msg = _rsp.json()['error'].get('message')
 
         if 'API key not valid' in _msg:
-
             logging.error("Please check the API token.")
-            logging.error(
-                "The API token could not be verified. The response received was %s: %s" % (_sc, _msg))
-
+            logging.error("The API token could not be verified. The response received was %s: %s" % (_sc, _msg))
             sys.exit(1)
-
         else:
-
             logging.info("Verified API token.")
 
     def _get_supported_languages(self):
@@ -97,8 +92,7 @@ class GoogleNLPClient(HttpClient):
                      "encodingType": "UTF8",
                      "features": features}
 
-        logging.debug("Body template:")
-        logging.debug(_template)
+        logging.debug(f"Body template: {_template}")
 
         return _template
 
@@ -107,14 +101,12 @@ class GoogleNLPClient(HttpClient):
         _body = self._create_body(content, language, features, inputType)
 
         try:
-
-            _rsp = self.post_raw(url=self.base_url, data=_body)
-
+            _rsp = self.post_raw(url=self.base_url, data=_body, is_absolute_path=True)
             return _rsp
 
         except requests.exceptions.RetryError as e:
-            raise GoogleNLPClientException(f"There was a problem calling documents:annotateText endpoint."
-                                           f" Retry 10x failed. Reason: {e} "
+            raise GoogleNLPClientException(f"There was a problem calling documents:annotateText endpoint. "
+                                           f"Retry 10x failed. Reason: {e} "
                                            f"Following features were used: {str(features)} "
                                            f"The issue might be caused by daily limits reached. "
                                            f"Please, raise the limits if necessary.") from e

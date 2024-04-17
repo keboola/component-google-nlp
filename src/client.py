@@ -1,7 +1,5 @@
 from bs4 import BeautifulSoup
-import json
 import logging
-# import os
 import requests
 import sys
 from keboola.http_client import HttpClient
@@ -85,10 +83,10 @@ class googleNLPClient(HttpClient):
 
         except (KeyError, AttributeError) as e:
 
-            logging.warn("Could not obtain languages.")
-            logging.warn(e)
+            logging.warning("Could not obtain languages.")
+            logging.warning(e)
 
-    def _create_body(self, content, language, features, inputType='PLAIN_TEXT'):
+    def _create_body(self, content, language, features, inputType='PLAIN_TEXT') -> dict:
 
         if language is None:
             language = ''
@@ -102,7 +100,7 @@ class googleNLPClient(HttpClient):
         logging.debug("Body template:")
         logging.debug(_template)
 
-        return json.dumps(_template)
+        return _template
 
     def analyze_text(self, content, language, features, inputType='PLAIN_TEXT'):
 

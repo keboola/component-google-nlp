@@ -123,6 +123,7 @@ class Component(ComponentBase):
 
     def process_document(self, documentDict, retry):
 
+        logging.debug(f"Processing document: {documentDict}")
         documentId = documentDict['id']
         documentText = documentDict['text']
         documentLanguage = documentDict.get('sourceLanguage')

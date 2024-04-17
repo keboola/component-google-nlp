@@ -174,7 +174,7 @@ class Component(ComponentBase):
         _js = _nlpResponse.json()
 
         if _sc == 200:
-
+            logging.info(f"Received response: {_js}")
             self.split_and_write_data(documentId, _js, skipCategories)
             # write results
 

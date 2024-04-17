@@ -106,11 +106,8 @@ class Component(ComponentBase):
 
                 else:
 
-                    logging.error(
-                        "Missing required column \"id\" or \"text\" in table %s." % _input['destination'])
-                    logging.error(
-                        "Please, make sure all of the required columns are inputted.")
-
+                    logging.error("Missing required column \"id\" or \"text\" in table %s." % _input.name)
+                    logging.error("Please, make sure all of the required columns are inputted.")
                     sys.exit(1)
 
         self.input_table = _input
@@ -457,13 +454,13 @@ class Component(ComponentBase):
 
         _path = self.input_table['full_path']
 
-        logging.debug(f"Processing data from table {self.input_table['destination']}")
+        logging.debug(f"Processing data from table {self.input_table.name}")
 
         with open(_path) as fileInput:
 
             _reader = csv.DictReader(fileInput)
 
-            logging.debug(f"Defined columns: {self.input_table['columns']}, found columns: {_reader.fieldnames}")
+            logging.debug(f"Defined columns: {self.input_table.columns}, found columns: {_reader.fieldnames}")
 
             for row in _reader:
 

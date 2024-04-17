@@ -42,6 +42,29 @@ class Component(ComponentBase):
         self.writer = resultWriter(
             methodList=self.paramAnalysisType, dataPath=self.tables_out_path)
 
+    def run(self):
+
+        _path = self.input_table.full_path
+
+        logging.info(f"Processing data from table {self.input_table.name}")
+
+        with open(_path) as fileInput:
+
+            _reader = csv.DictReader(fileInput)
+
+            logging.debug(f"Defined columns: {self.input_table.columns}, found columns: {_reader.fieldnames}")
+
+            for row in _reader:
+
+                try:
+                    self.process_document(documentDict=row, retry=True)
+                except GoogleNLPClientException as e:
+                    raise e
+
+                if _reader.line_num % 250 == 0:
+
+                    logging.info("Made %s call to API so far." % _reader.line_num)
+
     def _create_request_features(self):
 
         _template = {}
@@ -440,29 +463,6 @@ class Component(ComponentBase):
 
                 f = eval('self.write_' + table)
                 f(documentId, nlpResult)
-
-    def run(self):
-
-        _path = self.input_table.full_path
-
-        logging.debug(f"Processing data from table {self.input_table.name}")
-
-        with open(_path) as fileInput:
-
-            _reader = csv.DictReader(fileInput)
-
-            logging.debug(f"Defined columns: {self.input_table.columns}, found columns: {_reader.fieldnames}")
-
-            for row in _reader:
-
-                try:
-                    self.process_document(documentDict=row, retry=True)
-                except GoogleNLPClientException as e:
-                    raise e
-
-                if _reader.line_num % 250 == 0:
-
-                    logging.info("Made %s call to API so far." % _reader.line_num)
 
 
 """

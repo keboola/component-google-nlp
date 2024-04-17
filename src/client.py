@@ -11,7 +11,7 @@ class GoogleNLPClientException(Exception):
     pass
 
 
-class googleNLPClient(HttpClient):
+class GoogleNLPClient(HttpClient):
 
     def __init__(self, token):
 

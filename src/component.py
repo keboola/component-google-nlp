@@ -3,7 +3,7 @@ from hashlib import md5
 import json
 import logging
 import sys
-from client import googleNLPClient, GoogleNLPClientException
+from client import GoogleNLPClient, GoogleNLPClientException
 from result import resultWriter
 from keboola.component.base import ComponentBase
 from keboola.component.exceptions import UserException
@@ -38,7 +38,7 @@ class Component(ComponentBase):
         self._create_request_features()
         self._identify_sentiment()
 
-        self.client = googleNLPClient(token=self.paramToken)
+        self.client = GoogleNLPClient(token=self.paramToken)
         self.writer = resultWriter(
             methodList=self.paramAnalysisType, dataPath=self.tables_out_path)
 
@@ -452,7 +452,7 @@ class Component(ComponentBase):
 
     def run(self):
 
-        _path = self.input_table['full_path']
+        _path = self.input_table.full_path
 
         logging.debug(f"Processing data from table {self.input_table.name}")
 

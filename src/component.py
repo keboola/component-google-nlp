@@ -23,7 +23,6 @@ MANDATORY_PARS = [API_KEY, ANALYSIS_TYPE_KEY, INPUT_TYPE_KEY]
 class Component(ComponentBase):
 
     def __init__(self):
-
         super().__init__()
         self.validate_configuration_parameters(MANDATORY_PARS)
 

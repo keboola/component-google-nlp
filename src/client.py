@@ -54,7 +54,8 @@ class GoogleNLPClient(HttpClient):
                 'sentiment_analysis': 'analyzeSentiment',
                 'entity_sentiment_analysis': 'analyzeEntitySentiment'}
 
-        _page = self.get_raw('https://cloud.google.com/natural-language/docs/languages')
+        _page = self.get_raw(endpoint_path='https://cloud.google.com/natural-language/docs/languages',
+                             is_absolute_path=True)
         soup = BeautifulSoup(_page.text, "html.parser")
 
         table_headers = soup.findAll('h2')

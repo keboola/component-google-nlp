@@ -83,9 +83,7 @@ class Component(ComponentBase):
             else:
                 pass
 
-        logging.debug("Sentiment is present in the following tables:")
-        logging.debug(_includedSentiment)
-
+        logging.debug(f"Sentiment is present in the following tables: {_includedSentiment}")
         self.resultSentimentTables = _includedSentiment
 
     def _check_input_tables(self):
@@ -99,7 +97,6 @@ class Component(ComponentBase):
 
             logging.error("No input table was provided. Please provide an input table, with mandatory columns \"id\"," +
                           " \"text\" and optional column \"sourceLanguage\". See documentation for more information.")
-
             sys.exit(1)
 
         else:
@@ -174,7 +171,7 @@ class Component(ComponentBase):
         _js = _nlpResponse.json()
 
         if _sc == 200:
-            logging.info(f"Received response: {_js}")
+            print(f"Received response: {_js}")
             self.split_and_write_data(documentId, _js, skipCategories)
             # write results
 

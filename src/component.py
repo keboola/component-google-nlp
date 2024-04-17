@@ -45,13 +45,10 @@ class Component(ComponentBase):
     def run(self):
 
         _path = self.input_table.full_path
-
         logging.info(f"Processing data from table {self.input_table.name}")
 
         with open(_path) as fileInput:
-
             _reader = csv.DictReader(fileInput)
-
             logging.debug(f"Defined columns: {self.input_table.columns}, found columns: {_reader.fieldnames}")
 
             for row in _reader:
@@ -62,7 +59,6 @@ class Component(ComponentBase):
                     raise e
 
                 if _reader.line_num % 250 == 0:
-
                     logging.info("Made %s call to API so far." % _reader.line_num)
 
     def _create_request_features(self):
@@ -144,7 +140,7 @@ class Component(ComponentBase):
 
             sys.exit(1)
 
-    def process_document(self, documentDict, retry):
+    def process_document(self, documentDict: dict, retry):
 
         logging.debug(f"Processing document: {documentDict}")
         documentId = documentDict['id']
@@ -452,15 +448,12 @@ class Component(ComponentBase):
             # Mentions are automatically created with entities and are its child
             # Errors are logged separately
             if table in ['mentions', 'errors']:
-
                 continue
 
             elif skipCategories is True:
-
                 continue
 
             else:
-
                 f = eval('self.write_' + table)
                 f(documentId, nlpResult)
 

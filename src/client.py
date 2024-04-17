@@ -24,7 +24,7 @@ class GoogleNLPClient(HttpClient):
                          backoff_factor=0.3, default_params=_def_params,
                          status_forcelist=(500, 502), default_http_header=_def_header)
 
-        self._check_token()
+        # self._check_token()
 
     def _check_token(self):
 

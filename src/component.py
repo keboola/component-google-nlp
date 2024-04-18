@@ -241,7 +241,7 @@ class Component(ComponentBase):
                 return
 
         elif _sc > 400:
-            _message = _js['error']['message']
+            _message = _js.get('error', {}).get('message', "")
             raise UserException(f"Received status code {str(_sc)} and message: {_message}")
 
     @staticmethod

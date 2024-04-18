@@ -8,4 +8,4 @@ if [ "$(ls -A $TABLES_PATH)" ]; then
      rm -r $TABLES_PATH
 fi
 
-python /code/src/main.py
+python /code/src/component.py

@@ -1,10 +1,9 @@
 from bs4 import BeautifulSoup
 import json
 import logging
-# import os
 import requests
 import sys
-from kbc.client_base import HttpClientBase
+from keboola.http_client import HttpClient
 
 BASE_URL = 'https://language.googleapis.com/v1/documents:annotateText'
 
@@ -13,7 +12,7 @@ class GoogleNLPClientException(Exception):
     pass
 
 
-class googleNLPClient(HttpClientBase):
+class GoogleNLPClient(HttpClient):
 
     def __init__(self, token):
 
@@ -22,9 +21,9 @@ class googleNLPClient(HttpClientBase):
                        "Accept": "application/json"}
         self.token = token
 
-        HttpClientBase.__init__(self, base_url=BASE_URL, max_retries=10,
-                                backoff_factor=0.3, default_params=_def_params,
-                                status_forcelist=(500, 502), default_http_header=_def_header)
+        super().__init__(base_url=BASE_URL, max_retries=10,
+                         backoff_factor=0.3, default_params=_def_params,
+                         status_forcelist=(500, 502), default_http_header=_def_header)
 
         self._check_token()
 
@@ -34,20 +33,15 @@ class googleNLPClient(HttpClientBase):
 
         # Will produce a 400 error due to invalid payload.
         # Depending on message, the token can be verified
-        _rsp = self.post_raw(self.base_url, data=_body)
+        _rsp = self.post_raw(data=_body)
         _sc = _rsp.status_code
         _msg = _rsp.json()['error'].get('message')
 
         if 'API key not valid' in _msg:
-
             logging.error("Please check the API token.")
-            logging.error(
-                "The API token could not be verified. The response received was %s: %s" % (_sc, _msg))
-
+            logging.error("The API token could not be verified. The response received was %s: %s" % (_sc, _msg))
             sys.exit(1)
-
         else:
-
             logging.info("Verified API token.")
 
     def _get_supported_languages(self):
@@ -61,21 +55,20 @@ class googleNLPClient(HttpClientBase):
                 'sentiment_analysis': 'analyzeSentiment',
                 'entity_sentiment_analysis': 'analyzeEntitySentiment'}
 
-        _page = self.get_raw('https://cloud.google.com/natural-language/docs/languages')
+        _page = self.get_raw(endpoint_path='https://cloud.google.com/natural-language/docs/languages',
+                             is_absolute_path=True)
         soup = BeautifulSoup(_page.text, "html.parser")
 
         table_headers = soup.findAll('h2')
         table_contents = soup.findAll('table')
 
         if len(table_contents) != len(table_headers):
-
             logging.info("Skipping obtaining languages due to not matching website inputs.")
             return
 
         supported_languages = {}
         try:
             for t in range(len(table_headers)):
-
                 _name = table_headers[t]['id']
                 _name_mapped = _map.get(_name)
 
@@ -87,13 +80,12 @@ class googleNLPClient(HttpClientBase):
 
         except (KeyError, AttributeError) as e:
 
-            logging.warn("Could not obtain languages.")
-            logging.warn(e)
+            logging.warning("Could not obtain languages.")
+            logging.warning(e)
 
-    def _create_body(self, content, language, features, inputType='PLAIN_TEXT'):
+    def _create_body(self, content, language, features, inputType='PLAIN_TEXT') -> str:
 
         if language is None:
-
             language = ''
 
         _template = {"document": {"type": inputType,
@@ -102,24 +94,22 @@ class googleNLPClient(HttpClientBase):
                      "encodingType": "UTF8",
                      "features": features}
 
-        logging.debug("Body template:")
-        logging.debug(_template)
+        logging.debug(f"Body template: {_template}")
 
         return json.dumps(_template)
 
     def analyze_text(self, content, language, features, inputType='PLAIN_TEXT'):
 
         _body = self._create_body(content, language, features, inputType)
+        logging.debug(f"Body: {_body}")
 
         try:
-
-            _rsp = self.post_raw(url=self.base_url, data=_body)
-
+            _rsp = self.post_raw(data=_body)
             return _rsp
 
         except requests.exceptions.RetryError as e:
-            raise GoogleNLPClientException(f"There was a problem calling documents:annotateText endpoint."
-                                           f" Retry 10x failed. Reason: {e} "
+            raise GoogleNLPClientException(f"There was a problem calling documents:annotateText endpoint. "
+                                           f"Retry 10x failed. Reason: {e} "
                                            f"Following features were used: {str(features)} "
                                            f"The issue might be caused by daily limits reached. "
                                            f"Please, raise the limits if necessary.") from e

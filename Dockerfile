@@ -1,4 +1,4 @@
-FROM python:3.7.2-slim
+FROM python:3.11-slim
 ENV PYTHONIOENCODING utf-8
 
 COPY . /code/
@@ -13,4 +13,4 @@ RUN pip install -r /code/requirements.txt
 WORKDIR /code/
 
 
-CMD ["python", "-u", "/code/src/main.py"]
+CMD ["python", "-u", "/code/src/component.py"]

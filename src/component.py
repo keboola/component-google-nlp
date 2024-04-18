@@ -240,6 +240,10 @@ class Component(ComponentBase):
 
                 return
 
+        elif _sc > 400:
+            _message = _js['error']['message']
+            raise UserException(f"Received status code {str(_sc)} and message: {_message}")
+
     @staticmethod
     def _hash_string(hashList, delim='|'):
 

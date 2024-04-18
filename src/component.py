@@ -215,7 +215,7 @@ class Component(ComponentBase):
                     _additionalMessage = 'Request could not be retried because no other method was specified.'
                     _message = ' '.join([_message, _additionalMessage])
 
-                    logging.error(_additionalMessage)
+                    logging.warning(_additionalMessage)
 
                     self.writer.writerErrors.writerow({'documentId': documentId,
                                                        'category': 'categoryError',
@@ -229,7 +229,7 @@ class Component(ComponentBase):
                 _additionalMessage = "Document %s could not be processed. Received:" % documentId
                 _logMessage = ' '.join([_additionalMessage, _message])
 
-                logging.error(_logMessage)
+                logging.warning(_logMessage)
 
                 self.writer.writerErrors.writerow({'documentId': documentId,
                                                    'category': 'nlpError',
